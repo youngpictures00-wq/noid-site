@@ -44,9 +44,9 @@
       align-items: center;
     }
 
-    /* --- 1. HERO (LOGO AREA) --- */
+    /* --- 1. HERO (LOGO ONLY) --- */
     .logo {
-      margin-bottom: 20px;
+      margin-bottom: 80px; /* 브랜드 스토리와의 간격 */
       animation: fadeIn 1.2s ease-out;
     }
     .logo img {
@@ -56,38 +56,13 @@
       display: block;
     }
 
-    .role {
-      font-size: 1.1rem;
-      font-weight: 500;
-      letter-spacing: 0.15em;
-      color: var(--text-sub);
-      margin-bottom: 20px;
-      text-transform: uppercase;
-      text-align: center;
-    }
-
-    .services {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 120px; /* 브랜드 소개와 간격 넉넉히 */
-      font-size: 0.9rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      color: var(--brand-yellow);
-      text-transform: uppercase;
-    }
-    .services span.separator {
-      color: rgba(220, 176, 69, 0.3);
-    }
-
     /* --- 2. BRAND STORY SECTION --- */
     .brand-section {
       width: 100%;
       max-width: 900px;
       margin-bottom: 120px;
       text-align: left;
+      animation: fadeIn 1.5s ease-out; /* 부드럽게 등장 */
     }
     
     .identity-header {
@@ -101,12 +76,11 @@
       -webkit-text-fill-color: transparent;
     }
 
-    /* (NEW) ETYMOLOGY BLOCK : 어원 설명 */
+    /* ETYMOLOGY BLOCK : 어원 설명 */
     .etymology-block {
       text-align: center;
       margin-bottom: 100px;
       padding: 0 20px;
-      animation: fadeIn 1.5s ease-out;
     }
     .etymology-title {
       font-size: 0.85rem;
@@ -120,7 +94,7 @@
       padding-bottom: 5px;
     }
     .etymology-text {
-      font-size: 1.6rem; /* 큼지막하게 강조 */
+      font-size: 1.6rem; 
       font-weight: 300;
       line-height: 1.6;
       color: #fff;
@@ -130,10 +104,13 @@
       color: var(--brand-yellow);
     }
     .etymology-sub {
-      margin-top: 20px;
+      margin-top: 24px;
       font-size: 1rem;
       color: var(--text-sub);
       font-weight: 400;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     /* Philosophy Block */
@@ -143,7 +120,7 @@
       gap: 50px;
       margin-bottom: 80px;
       padding-top: 60px;
-      border-top: 1px solid rgba(255,255,255,0.05); /* 구분선 추가 */
+      border-top: 1px solid rgba(255,255,255,0.05);
     }
 
     .story-block {
@@ -288,7 +265,7 @@
       text-transform: uppercase;
     }
 
-    /* --- 5. FOOTER --- */
+    /* --- 5. FOOTER (Business Card Style) --- */
     .card-footer {
       width: 100%;
       background-color: #23261e;
@@ -392,14 +369,7 @@
     <div class="logo">
       <img src="noid-logo.svg" alt="NOID LOGO" />
     </div>
-    <div class="role">Creative Director · Seo Young Jin</div>
-    <div class="services">
-      <span>Video</span><span class="separator">/</span>
-      <span>Photo</span><span class="separator">/</span>
-      <span>Drone</span><span class="separator">/</span>
-      <span>AI Production</span>
-    </div>
-
+    
     <section class="brand-section">
       <div class="identity-header">EVOLVING VISION</div>
 
