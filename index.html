@@ -199,7 +199,6 @@
       margin-bottom: 100px;
     }
 
-    /* 카드 스타일: 클릭 가능한 링크(a태그)로 변경하되 디자인은 유지 */
     .card {
       background: var(--card-bg);
       border-radius: 4px;
@@ -208,27 +207,29 @@
       transition: transform 0.3s ease, border-color 0.3s ease;
       cursor: pointer;
       display: block; /* a태그 블록화 */
-      text-decoration: none; /* 링크 밑줄 제거 */
+      text-decoration: none;
     }
     .card:hover { transform: translateY(-8px); border-color: var(--brand-yellow); }
 
-    .card-img-placeholder {
-      width: 100%;
-      height: 260px;
-      background: #252822;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #666;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      transition: color 0.3s, background 0.3s;
+    /* [이미지 썸네일 스타일] */
+    .card-img-wrap {
+        width: 100%;
+        height: 260px; /* 기존 박스와 동일한 높이 */
+        overflow: hidden;
+        background-color: #000;
     }
-    /* 카드 호버 시 텍스트/배경색 반응 */
-    .card:hover .card-img-placeholder {
-      color: var(--brand-yellow);
-      background: #2f3326;
+    
+    .card-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* 이미지가 비율 깨지지 않고 꽉 차게 */
+        transition: transform 0.5s ease;
+        display: block;
+    }
+
+    /* 카드에 마우스 올리면 이미지가 살짝 확대됨 */
+    .card:hover .card-img {
+        transform: scale(1.1);
     }
 
     .card-info { padding: 20px; text-align: left; }
@@ -287,16 +288,15 @@
       display: block !important;
     }
 
-    /* 지도 링크 스타일 */
     .map-link {
-      color: inherit; /* 부모 텍스트 색상 상속 */
-      text-decoration: none; /* 기본 밑줄 제거 */
+      color: inherit;
+      text-decoration: none;
       transition: color 0.3s, text-decoration 0.3s;
       cursor: pointer;
     }
     .map-link:hover {
-      color: #dcb045; /* 브랜드 컬러로 강조 */
-      text-decoration: underline; /* 호버 시 밑줄 생성 */
+      color: #dcb045;
+      text-decoration: underline;
     }
     
     .footer-logo-img { display: none; } 
@@ -394,7 +394,9 @@
     <div class="portfolio-header">SELECTED WORKS & R&D</div>
     <div class="grid">
       <a class="card" href="http://naver.me/xeUQP1Z7" target="_blank">
-        <div class="card-img-placeholder">COMMERCIAL VIDEO</div>
+        <div class="card-img-wrap">
+          <img src="https://placehold.co/600x400/1f221c/dcb045?text=Commercial+Image" alt="Commercial" class="card-img">
+        </div>
         <div class="card-info">
           <h3 class="card-title">Commercial & Brand</h3>
           <span class="card-tag">VIDEO PRODUCTION</span>
@@ -402,7 +404,9 @@
       </a>
       
       <a class="card" href="https://naver.me/5Hrtl0Lj" target="_blank">
-        <div class="card-img-placeholder">EDITORIAL PHOTO</div>
+        <div class="card-img-wrap">
+          <img src="https://placehold.co/600x400/1f221c/dcb045?text=Photography+Image" alt="Photography" class="card-img">
+        </div>
         <div class="card-info">
           <h3 class="card-title">Photography</h3>
           <span class="card-tag">STILL & PROFILE</span>
@@ -410,7 +414,9 @@
       </a>
       
       <a class="card" href="https://youtu.be/kWY28bN8_Zw?si=ZxyZoBMYwlWkVUau" target="_blank">
-        <div class="card-img-placeholder">AERIAL VIEW</div>
+        <div class="card-img-wrap">
+          <img src="https://placehold.co/600x400/1f221c/dcb045?text=Drone+Image" alt="Drone" class="card-img">
+        </div>
         <div class="card-info">
           <h3 class="card-title">Drone & Space</h3>
           <span class="card-tag">AERIAL CINEMATOGRAPHY</span>
@@ -418,7 +424,9 @@
       </a>
       
       <a class="card" href="https://youtu.be/BFhW3lqSM7k?si=gqHq_vuFBX7jmuuh" target="_blank">
-        <div class="card-img-placeholder">AI GENERATIVE ART</div>
+        <div class="card-img-wrap">
+          <img src="https://placehold.co/600x400/1f221c/dcb045?text=AI+Lab+Image" alt="AI Lab" class="card-img">
+        </div>
         <div class="card-info">
           <h3 class="card-title">AI Creative Lab</h3>
           <span class="card-tag">AI PRODUCTION</span>
