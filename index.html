@@ -27,13 +27,12 @@
       margin: 0;
       min-height: 100vh;
       background-color: var(--bg-dark);
-      /* 배경 그라데이션을 조금 더 깊이감 있게 조정 */
       background: radial-gradient(circle at 50% 30%, var(--bg-gradient) 0%, var(--bg-dark) 80%);
       color: var(--text-main);
       font-family: 'Montserrat', 'Noto Sans KR', sans-serif;
       line-height: 1.8;
       word-break: keep-all;
-      overflow-x: hidden; /* 가로 스크롤 방지 */
+      overflow-x: hidden;
     }
 
     .container {
@@ -44,25 +43,23 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      position: relative; /* 배경 요소를 위한 기준점 */
+      position: relative;
     }
 
     /* --- 1. HERO (LOGO ONLY) --- */
     .logo {
-      /* 수정: 간격을 100px -> 60px로 대폭 줄임 */
       margin-bottom: 60px;
       animation: fadeIn 1.2s ease-out;
       width: 100%;
       display: flex;
       justify-content: center;
-      position: relative; z-index: 2; /* 배경보다 위에 오도록 */
+      position: relative; z-index: 2;
     }
     .logo img {
       width: 680px;
       max-width: 95vw;
       height: auto;
       display: block;
-      /* 글로우 효과를 조금 더 고급스럽게 다듬음 */
       filter: drop-shadow(0 0 25px rgba(220, 176, 69, 0.15));
     }
 
@@ -73,36 +70,33 @@
       margin-bottom: 140px;
       text-align: center;
       animation: fadeIn 1.5s ease-out;
-      position: relative; /* 배경 패턴을 위한 기준점 */
-      padding: 60px 0; /* 위아래 여백 추가 */
+      position: relative;
+      padding: 60px 0;
     }
 
-    /* (NEW) 허전함을 채워줄 은은한 글리치 배경 패턴 추가 */
     .brand-section::before {
       content: '';
       position: absolute;
       top: 0; left: 50%;
       transform: translateX(-50%);
-      width: 120%; /* 컨테이너보다 넓게 */
+      width: 120%;
       height: 100%;
-      /* CSS로 만드는 은은한 디지털 노이즈 패턴 */
       background-image: 
         linear-gradient(to right, rgba(220, 176, 69, 0.03) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(220, 176, 69, 0.03) 1px, transparent 1px);
-      background-size: 40px 40px; /* 격자 크기 */
-      opacity: 0.5; /* 아주 은은하게 */
-      z-index: -1; /* 텍스트 뒤로 */
-      mask-image: radial-gradient(circle at center, black 40%, transparent 80%); /* 중앙만 보이게 마스킹 */
+      background-size: 40px 40px;
+      opacity: 0.5;
+      z-index: -1;
+      mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
       -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
     }
     
-    /* 수정: 타이틀을 "BRAND STORY"로 변경하고 스타일 조정 */
     .identity-header {
-      font-size: 1.6rem; /* 크기 약간 줄임 */
+      font-size: 1.6rem;
       font-weight: 700;
-      margin-bottom: 60px; /* 간격 조정 */
+      margin-bottom: 60px;
       letter-spacing: 0.15em;
-      color: var(--brand-yellow); /* 브랜드 컬러로 강조 */
+      color: var(--brand-yellow);
       text-transform: uppercase;
       opacity: 0.8;
     }
@@ -205,6 +199,7 @@
       margin-bottom: 100px;
     }
 
+    /* 카드 스타일: 클릭 가능한 링크(a태그)로 변경하되 디자인은 유지 */
     .card {
       background: var(--card-bg);
       border-radius: 4px;
@@ -212,8 +207,11 @@
       border: 1px solid rgba(255,255,255,0.05);
       transition: transform 0.3s ease, border-color 0.3s ease;
       cursor: pointer;
+      display: block; /* a태그 블록화 */
+      text-decoration: none; /* 링크 밑줄 제거 */
     }
     .card:hover { transform: translateY(-8px); border-color: var(--brand-yellow); }
+
     .card-img-placeholder {
       width: 100%;
       height: 260px;
@@ -225,7 +223,14 @@
       font-size: 0.8rem;
       font-weight: 600;
       letter-spacing: 0.1em;
+      transition: color 0.3s, background 0.3s;
     }
+    /* 카드 호버 시 텍스트/배경색 반응 */
+    .card:hover .card-img-placeholder {
+      color: var(--brand-yellow);
+      background: #2f3326;
+    }
+
     .card-info { padding: 20px; text-align: left; }
     .card-title { font-size: 1rem; font-weight: 700; color: #fff; margin: 0 0 8px 0; }
     .card-tag { font-size: 0.75rem; color: var(--brand-yellow); letter-spacing: 0.05em; text-transform: uppercase; }
@@ -273,12 +278,25 @@
     .f-contact-info a { color: #bbb; text-decoration: none; transition: color 0.3s; }
     .f-contact-info a:hover { color: #dcb045; }
     .label { font-weight: 700; color: #dcb045; margin-right: 10px; display: inline-block; width: 15px; text-align: right;}
+    
     .biz-info {
       margin-top: 24px !important;
       font-size: 0.85rem !important;
       color: #666 !important;
       line-height: 1.6;
       display: block !important;
+    }
+
+    /* [추가] 지도 링크 스타일 정의 */
+    .map-link {
+      color: inherit; /* 부모 텍스트 색상 상속 */
+      text-decoration: none; /* 기본 밑줄 제거 */
+      transition: color 0.3s, text-decoration 0.3s;
+      cursor: pointer;
+    }
+    .map-link:hover {
+      color: #dcb045; /* 브랜드 컬러로 강조 */
+      text-decoration: underline; /* 호버 시 밑줄 생성 */
     }
     
     .footer-logo-img { display: none; } 
@@ -309,13 +327,13 @@
     }
     @media (max-width: 768px) {
       .logo img { width: 100%; }
-      .logo { margin-bottom: 40px; } /* 모바일 간격 조정 */
+      .logo { margin-bottom: 40px; }
       .main-desc { font-size: 1.1rem; }
       .color-grid { flex-direction: column; gap: 30px; }
       .grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
       .f-services { font-size: 0.85rem; }
       .sep { margin: 0 6px; }
-      .brand-section::before { background-size: 30px 30px; } /* 모바일 패턴 크기 조정 */
+      .brand-section::before { background-size: 30px 30px; }
     }
   </style>
 </head>
@@ -375,37 +393,42 @@
 
     <div class="portfolio-header">SELECTED WORKS & R&D</div>
     <div class="grid">
-      <div class="card">
+      <a class="card" href="https://www.youtube.com/watch?v=xNkSzG0-O0U" target="_blank">
         <div class="card-img-placeholder">COMMERCIAL VIDEO</div>
         <div class="card-info">
           <h3 class="card-title">Commercial & Brand</h3>
           <span class="card-tag">VIDEO PRODUCTION</span>
         </div>
-      </div>
-      <div class="card">
+      </a>
+      
+      <a class="card" href="https://www.youtube.com/watch?v=xNkSzG0-O0U" target="_blank">
         <div class="card-img-placeholder">EDITORIAL PHOTO</div>
         <div class="card-info">
           <h3 class="card-title">Photography</h3>
           <span class="card-tag">STILL & PROFILE</span>
         </div>
-      </div>
-      <div class="card">
+      </a>
+      
+      <a class="card" href="https://www.youtube.com/watch?v=xNkSzG0-O0U" target="_blank">
         <div class="card-img-placeholder">AERIAL VIEW</div>
         <div class="card-info">
           <h3 class="card-title">Drone & Space</h3>
           <span class="card-tag">AERIAL CINEMATOGRAPHY</span>
         </div>
-      </div>
-      <div class="card">
+      </a>
+      
+      <a class="card" href="https://www.youtube.com/watch?v=xNkSzG0-O0U" target="_blank">
         <div class="card-img-placeholder">AI GENERATIVE ART</div>
         <div class="card-info">
           <h3 class="card-title">AI Creative Lab</h3>
           <span class="card-tag">AI PRODUCTION</span>
         </div>
-      </div>
+      </a>
     </div>
 
-  </div> <footer class="card-footer">
+  </div> 
+
+  <footer class="card-footer">
     <div class="footer-content">
       <div class="f-name">Youngjin Seo</div>
       <div class="f-role">Creative Director · AI Production</div>
@@ -417,7 +440,7 @@
       
       <div class="biz-info">
         License: 241-40-01310 <br>
-        Address: 경기도 광명시 광명동 297-50
+        Address: <a href="https://map.naver.com/p/search/경기도%20광명시%20광명동%20297-50" target="_blank" class="map-link">경기도 광명시 광명동 297-50</a>
       </div>
     </div>
 
