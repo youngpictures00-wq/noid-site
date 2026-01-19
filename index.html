@@ -32,23 +32,24 @@
         Helvetica, Arial, sans-serif;
       display: flex;
       justify-content: center;
+      align-items: center;
     }
 
     .container {
       width: 100%;
       max-width: 1100px;
-      padding: 120px 24px 100px;
+      padding: 90px 24px 80px; /* ⬅ 전체 상단 여백 줄임 */
       text-align: center;
     }
 
     /* LOGO */
     .logo {
-      margin-bottom: 28px;
+      margin-bottom: 16px; /* ⬅ 텍스트와 간격 압축 */
     }
 
     .logo img {
-      width: 420px;          /* 🔥 크게 */
-      max-width: 85vw;
+      width: 520px;          /* 🔥 더 크게 */
+      max-width: 88vw;
       height: auto;
       display: block;
       margin: 0 auto;
@@ -56,16 +57,16 @@
 
     /* ROLE */
     .role {
-      font-size: 1rem;
+      font-size: 0.95rem;
       letter-spacing: 0.08em;
       color: var(--text-sub);
-      margin-bottom: 48px;
+      margin-bottom: 26px; /* ⬅ 영상과 간격 줄임 */
     }
 
     /* VIDEO */
     .video-wrap {
-      max-width: 880px;
-      margin: 0 auto 46px;
+      max-width: 900px;
+      margin: 0 auto 32px; /* ⬅ 전체 밀도 강화 */
       border-radius: 20px;
       overflow: hidden;
       box-shadow: 0 32px 80px rgba(0, 0, 0, 0.45);
@@ -80,7 +81,7 @@
 
     /* CONTACT */
     .contact {
-      margin-top: 36px;
+      margin-top: 20px; /* ⬅ 너무 떨어지지 않게 */
       font-size: 0.95rem;
       letter-spacing: 0.06em;
     }
@@ -98,11 +99,11 @@
 
     @media (max-width: 768px) {
       .container {
-        padding-top: 90px;
+        padding-top: 70px;
       }
 
       .logo img {
-        width: 260px;
+        width: 300px;
       }
 
       .video-wrap iframe {
@@ -115,12 +116,12 @@
 <body>
   <div class="container">
 
-    <!-- LOGO (MAIN HERO) -->
+    <!-- LOGO (HERO) -->
     <div class="logo">
       <img src="noid-logo.svg" alt="NOID Logo" />
     </div>
 
-    <!-- ROLE TEXT -->
+    <!-- ROLE -->
     <div class="role">Visual Brand Director · 서영진</div>
 
     <!-- SHOWREEL -->
