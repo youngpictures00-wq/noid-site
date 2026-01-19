@@ -33,45 +33,31 @@
       line-height: 1.8;
       word-break: keep-all;
       overflow-x: hidden;
-      position: relative; /* 가상요소 배치를 위해 필요 */
+      position: relative;
     }
 
-    /* --- [RETRO CRT MONITOR EFFECT] --- */
-    /* 1. 스캔라인 (가로줄 패턴) 추가 */
+    /* --- [VINTAGE TEXTURE OVERLAY] (은은한 노이즈 질감 복구) --- */
     body::before {
         content: "";
         position: fixed;
         top: 0; left: 0; width: 100%; height: 100%;
         pointer-events: none;
-        z-index: 999; /* 콘텐츠 위에 덮어씌움 */
-        
-        /* 촘촘한 가로줄 패턴 생성 */
-        background-image: linear-gradient(
-            to bottom,
-            transparent 50%,
-            rgba(0, 0, 0, 0.4) 50%
-        );
-        background-size: 100% 4px; /* 줄 간격 조절 */
-        mix-blend-mode: overlay; /* 배경과 자연스럽게 합성 */
-        opacity: 0.5; /* 스캔라인 강도 조절 */
+        z-index: -1; 
+        /* 노이즈 패턴 */
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E");
+        opacity: 0.15; 
+        mix-blend-mode: soft-light;
     }
 
-    /* 2. 강한 비네팅 (모서리 어둡게) */
+    /* 비네팅 (화면 가장자리 부드럽게 어둡게) */
     body::after {
         content: "";
         position: fixed;
         top: 0; left: 0; width: 100%; height: 100%;
         pointer-events: none;
-        z-index: 1000; /* 스캔라인보다 더 위에 */
-        
-        /* 중앙은 투명하고 가장자리는 진한 검은색으로 만들어 옛날 모니터 느낌 강조 */
-        background: radial-gradient(
-            circle at 50% 50%,
-            transparent 55%,
-            rgba(0, 0, 0, 0.9) 100%
-        );
+        z-index: -2; 
+        background: radial-gradient(circle at 50% 50%, transparent 0%, rgba(0,0,0,0.4) 100%);
     }
-
 
     .container {
       width: 100%;
@@ -82,7 +68,6 @@
       flex-direction: column;
       align-items: center;
       position: relative;
-      z-index: 1; /* 배경 효과보다 위에 오도록 설정 */
     }
 
     /* --- 1. HERO (LOGO ONLY) --- */
@@ -241,7 +226,6 @@
         padding: 30px 20px;
         text-align: center;
         transition: all 0.3s ease;
-        position: relative; z-index: 10; /* 레트로 효과 위로 오게 설정 */
     }
     .ai-tool-card:hover {
         border-color: var(--brand-yellow);
@@ -302,7 +286,6 @@
       cursor: pointer;
       display: block; /* a태그 블록화 */
       text-decoration: none;
-      position: relative; z-index: 10; /* 레트로 효과 위로 오게 설정 */
     }
     .card:hover { transform: translateY(-8px); border-color: var(--brand-yellow); }
 
