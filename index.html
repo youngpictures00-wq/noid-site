@@ -2,88 +2,132 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>NOID</title>
+  <title>NOID | Visual Brand Director 서영진</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
-    body {
-      margin: 0;
-      background: #0f0f0f;
-      color: #ffffff;
-      font-family: Arial, Helvetica, sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
+    :root{
+      --bg:#1C1F1A;
+      --text:#F2F0E8;     /* 명함 느낌의 아이보리 */
+      --sub:#A7AA9E;      /* 카키 그레이 */
+      --accent:#C8A45A;   /* 골드/브론즈 포인트 */
+      --line:rgba(242,240,232,0.10);
     }
 
-    .wrap {
-      width: 92%;
-      max-width: 640px;
-      text-align: center;
+    *{box-sizing:border-box;}
+    body{
+      margin:0;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:var(--bg);
+      color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
     }
 
-    h1 {
-      letter-spacing: 0.2em;
-      font-size: 32px;
-      margin-bottom: 8px;
+    .container{
+      width:100%;
+      max-width:520px;
+      padding:0 22px;
+      text-align:center;
     }
 
-    .subtitle {
-      opacity: 0.85;
-      margin-bottom: 6px;
+    /* 로고 */
+    .logo{
+      width:180px;               /* 필요하면 140~220 사이로 조절 */
+      max-width:60vw;
+      height:auto;
+      display:block;
+      margin:0 auto 14px auto;
+      filter: drop-shadow(0 8px 20px rgba(0,0,0,0.35));
     }
 
-    .tagline {
-      opacity: 0.6;
-      margin-bottom: 24px;
-      font-size: 14px;
+    .role{
+      font-size:0.95rem;
+      color:var(--sub);
+      margin-top:6px;
+      margin-bottom:6px;
     }
 
-    .video {
-      position: relative;
-      padding-top: 56.25%; /* 16:9 */
-      margin-bottom: 28px;
+    .tagline{
+      font-size:0.9rem;
+      color:var(--accent);
+      letter-spacing:0.04em;
+      margin-bottom:22px;
     }
 
-    .video iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-      border-radius: 12px;
+    .video{
+      position:relative;
+      width:100%;
+      padding-top:56.25%;
+      border:1px solid var(--line);
+      border-radius:10px;
+      overflow:hidden;
+      margin-bottom:18px;
+      background:rgba(0,0,0,0.12);
+    }
+    .video iframe{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      border:0;
     }
 
-    .footer {
-      font-size: 12px;
-      opacity: 0.5;
-      margin-top: 12px;
-      line-height: 1.6;
+    .contact{
+      font-size:0.78rem;
+      color:var(--sub);
+      letter-spacing:0.06em;
+      padding-top:8px;
+    }
+
+    .contact a{
+      color:var(--text);
+      text-decoration:none;
+      border-bottom:1px solid rgba(200,164,90,0.35);
+      padding-bottom:2px;
+    }
+    .contact a:hover{
+      border-bottom-color:rgba(200,164,90,0.9);
+    }
+
+    /* 접근성용 숨김 텍스트 */
+    .sr-only{
+      position:absolute;
+      width:1px;
+      height:1px;
+      padding:0;
+      margin:-1px;
+      overflow:hidden;
+      clip:rect(0,0,0,0);
+      white-space:nowrap;
+      border:0;
     }
   </style>
 </head>
 
 <body>
-  <div class="wrap">
-    <h1>NOID</h1>
-    <div class="subtitle">Visual Brand Director · 서영진</div>
+  <main class="container">
+    <!-- 로고 이미지 파일을 repo에 logo.png로 업로드 -->
+    <img class="logo" src="logo.png" alt="NOID logo" />
+    <h1 class="sr-only">NOID</h1>
+
+    <div class="role">Visual Brand Director · 서영진</div>
     <div class="tagline">Evolving Vision</div>
 
-    <div class="video">
+    <section class="video" aria-label="NOID showreel video">
       <iframe
         src="https://www.youtube.com/embed/cwQlH5tPD1A"
-        title="NOID Showreel"
+        title="NOID Video"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen>
       </iframe>
-    </div>
+    </section>
 
-    <div class="footer">
-      © 2026 NOID Studio<br />
-      Cinematic · Brand · AI
+    <div class="contact">
+      <a href="mailto:contact@noid.studio">contact@noid.studio</a>
     </div>
-  </div>
+  </main>
 </body>
 </html>
