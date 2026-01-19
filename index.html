@@ -4,14 +4,20 @@
   <meta charset="UTF-8" />
   <title>NOID | Visual Brand Director</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AI 기반 고퀄리티 커머셜 영상 제작 스튜디오 NOID" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Noto+Sans+KR:wght@300;500;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --khaki-bg: #1f221c;
-      --khaki-dark: #181a15;
-      --brand-yellow: #c9a24d;
+      --bg-dark: #121411; /* 더 깊은 블랙 */
+      --bg-gradient-start: #1f241a;
+      --brand-accent: #c9a24d; /* 고급스러운 골드 */
       --text-main: #f2f2ea;
-      --text-sub: #b6b6a6;
+      --text-sub: #8a8a80;
+      --card-bg: #1c1e19;
     }
 
     * { box-sizing: border-box; }
@@ -19,101 +25,190 @@
     body {
       margin: 0;
       min-height: 100vh;
-      background: radial-gradient(circle at top, #2a2f26 0%, var(--khaki-bg) 40%, var(--khaki-dark) 100%);
+      background-color: var(--bg-dark);
+      background: radial-gradient(circle at top, var(--bg-gradient-start) 0%, var(--bg-dark) 60%);
       color: var(--text-main);
-      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      font-family: 'Montserrat', 'Noto Sans KR', -apple-system, sans-serif;
+      line-height: 1.6;
     }
 
     .container {
       width: 100%;
       max-width: 1100px;
-      padding: 70px 24px;
+      margin: 0 auto;
+      padding: 80px 24px 40px;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    /* LOGO */
+    /* --- HERO SECTION --- */
     .logo {
-      margin-bottom: 6px;
+      margin-bottom: 12px;
+      animation: fadeIn 1.2s ease-out;
     }
     .logo img {
-      width: 620px;
-      max-width: 92vw;
+      width: 580px;
+      max-width: 90vw;
       height: auto;
       display: block;
-      margin: 0 auto;
     }
 
-    /* ROLE */
     .role {
-      font-size: 1.2rem;
-      letter-spacing: 0.12em;
+      font-size: 1.1rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
       color: var(--text-sub);
-      margin-bottom: 10px;
+      margin-bottom: 24px;
+      text-transform: uppercase;
     }
 
-    /* SERVICES */
     .services {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 18px;
-      font-size: 0.95rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--brand-yellow);
+      gap: 12px;
+      margin-bottom: 40px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--brand-accent);
     }
-
     .services span.separator {
-      color: rgba(201, 162, 77, 0.45);
-      padding: 0 2px;
+      color: rgba(201, 162, 77, 0.3);
     }
 
-    /* VIDEO */
+    /* --- SHOWREEL (Main Video) --- */
     .video-wrap {
-      max-width: 920px;
-      margin: 0 auto 26px;
-      border-radius: 20px;
+      width: 100%;
+      max-width: 960px;
+      aspect-ratio: 16 / 9;
+      border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 36px 90px rgba(0, 0, 0, 0.55);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      margin-bottom: 60px;
     }
-
     .video-wrap iframe {
       width: 100%;
-      height: 520px;
+      height: 100%;
       border: none;
-      background: #000;
     }
 
-    /* CONTACT */
-    .contact {
-      margin-top: 14px;
-      font-size: 1.05rem;
-      letter-spacing: 0.08em;
+    /* --- IDENTITY (Added) --- */
+    .identity-section {
+      max-width: 700px;
+      margin-bottom: 80px;
+      padding: 0 20px;
+    }
+    .identity-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--text-main);
+    }
+    .identity-desc {
+      font-size: 1rem;
+      color: var(--text-sub);
+      font-weight: 300;
+      word-break: keep-all;
     }
 
-    .contact a {
-      color: var(--brand-yellow);
+    /* --- PORTFOLIO GRID (Added) --- */
+    .portfolio-title {
+      font-size: 1.2rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 30px;
+      color: var(--brand-accent);
+      text-transform: uppercase;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      width: 100%;
+      margin-bottom: 80px;
+    }
+    .card {
+      background: var(--card-bg);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: var(--brand-accent);
+    }
+    .card-img {
+      width: 100%;
+      height: 160px;
+      background-color: #2a2a2a; /* Placeholder color */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #555;
+      font-size: 0.8rem;
+    }
+    /* 실제 이미지 사용시 background-image로 대체 */
+    .card-info {
+      padding: 16px;
+      text-align: left;
+    }
+    .card-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin: 0 0 6px 0;
+    }
+    .card-tag {
+      font-size: 0.75rem;
+      color: var(--brand-accent);
+      letter-spacing: 0.05em;
+    }
+
+    /* --- FOOTER (Added) --- */
+    footer {
+      width: 100%;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 40px;
+      font-size: 0.85rem;
+      color: var(--text-sub);
+    }
+    .contact-link {
+      color: var(--brand-accent);
       text-decoration: none;
+      font-size: 1.1rem;
       border-bottom: 1px solid rgba(201, 162, 77, 0.4);
-      padding-bottom: 2px;
+      padding-bottom: 4px;
+      transition: all 0.3s;
+    }
+    .contact-link:hover {
+      color: #fff;
+      border-bottom-color: #fff;
+    }
+    .company-info {
+      margin-top: 24px;
+      font-size: 0.75rem;
+      opacity: 0.6;
+      line-height: 1.8;
     }
 
-    .contact a:hover {
-      border-bottom-color: var(--brand-yellow);
+    /* Animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
+    /* Mobile Responsive */
     @media (max-width: 768px) {
-      .logo img { width: 360px; }
-      .role { font-size: 1rem; }
-      .services {
-        font-size: 0.85rem;
-        letter-spacing: 0.14em;
-      }
-      .video-wrap iframe { height: 240px; }
+      .logo img { width: 320px; }
+      .services { font-size: 0.75rem; }
+      .identity-title { font-size: 1.3rem; }
+      .grid { grid-template-columns: 1fr; } /* 모바일에서 1단 */
+      .card-img { height: 200px; }
     }
   </style>
 </head>
@@ -121,39 +216,94 @@
 <body>
   <div class="container">
 
-    <!-- LOGO -->
     <div class="logo">
       <img src="noid-logo.svg" alt="NOID Logo" />
     </div>
 
-    <!-- ROLE -->
-    <div class="role">Visual Brand Director · 서영진</div>
+    <div class="role">Creative Director · Seo Young Jin</div>
 
-    <!-- SERVICES -->
-    <div class="services" aria-label="NOID services">
-      <span>VIDEO</span>
-      <span class="separator">|</span>
-      <span>PHOTO</span>
-      <span class="separator">|</span>
-      <span>DRONE</span>
-      <span class="separator">|</span>
-      <span>AI PRODUCTION</span>
+    <div class="services">
+      <span>Video</span><span class="separator">/</span>
+      <span>Photo</span><span class="separator">/</span>
+      <span>Drone</span><span class="separator">/</span>
+      <span>AI Production</span>
     </div>
 
-    <!-- SHOWREEL -->
     <div class="video-wrap">
       <iframe
-        src="https://www.youtube.com/embed/cwQlH5tPD1A?rel=0&modestbranding=1"
+        src="https://www.youtube.com/embed/cwQlH5tPD1A?rel=0&modestbranding=1&controls=1"
         title="NOID Showreel"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
       ></iframe>
     </div>
 
-    <!-- CONTACT -->
-    <div class="contact">
-      <a href="mailto:contact@noid-ai-studio.com">contact@noid-ai-studio.com</a>
+    <div class="identity-section">
+      <div class="identity-title">EVOLVING VISION</div>
+      <div class="identity-desc">
+        NOID는 생성형 AI 기술과 시네마틱 연출을 결합하여<br>
+        상상을 압도적인 비주얼로 구현합니다.<br><br>
+        우리는 영상 제작의 공정을 혁신하고,<br>
+        브랜드의 비전을 가장 감각적인 언어로 이야기합니다.
+      </div>
     </div>
+
+    <div class="portfolio-title">Selected Works & R&D</div>
+    <div class="grid">
+      <div class="card">
+        <div class="card-img" style="background: #333;">
+            <span>AI Concept Art (Image)</span>
+        </div>
+        <div class="card-info">
+          <h3 class="card-title">Future City Vision</h3>
+          <span class="card-tag">AI GENERATIVE ART</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img" style="background: #2b2b2b;">
+            <span>Brand Film (Image)</span>
+        </div>
+        <div class="card-info">
+          <h3 class="card-title">Commercial Film</h3>
+          <span class="card-tag">BRAND VIDEO</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img" style="background: #252525;">
+            <span>Space Tour (Image)</span>
+        </div>
+        <div class="card-info">
+          <h3 class="card-title">Space & Architecture</h3>
+          <span class="card-tag">DRONE / INTERIOR</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img" style="background: #1f1f1f;">
+            <span>Style Transfer (Image)</span>
+        </div>
+        <div class="card-info">
+          <h3 class="card-title">AI Style Transfer</h3>
+          <span class="card-tag">TECH DEMO</span>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div style="margin-bottom: 20px;">
+        <a href="mailto:contact@noid-ai-studio.com" class="contact-link">contact@noid-ai-studio.com</a>
+      </div>
+      
+      <div class="company-info">
+        NOID (노이드) | 대표: 서영진<br>
+        Business License: [사업자번호 입력]<br>
+        Address: 경기도 광명시 [상세주소 입력]
+        <br><br>
+        © 2026 NOID AI STUDIO. All Rights Reserved.
+      </div>
+    </footer>
 
   </div>
 </body>
