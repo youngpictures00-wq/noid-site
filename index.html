@@ -10,8 +10,8 @@
       --khaki-bg: #1f221c;
       --khaki-dark: #181a15;
       --brand-yellow: #c9a24d;
-      --text-main: #eaeae3;
-      --text-sub: #9c9c8f;
+      --text-main: #f2f2ea;
+      --text-sub: #b6b6a6;
     }
 
     * {
@@ -23,8 +23,8 @@
       min-height: 100vh;
       background: radial-gradient(
         circle at top,
-        #262a22 0%,
-        var(--khaki-bg) 45%,
+        #2a2f26 0%,
+        var(--khaki-bg) 40%,
         var(--khaki-dark) 100%
       );
       color: var(--text-main);
@@ -38,18 +38,18 @@
     .container {
       width: 100%;
       max-width: 1100px;
-      padding: 90px 24px 80px; /* ⬅ 전체 상단 여백 줄임 */
+      padding: 70px 24px 70px;
       text-align: center;
     }
 
     /* LOGO */
     .logo {
-      margin-bottom: 16px; /* ⬅ 텍스트와 간격 압축 */
+      margin-bottom: 6px; /* 🔥 간격 최소 */
     }
 
     .logo img {
-      width: 520px;          /* 🔥 더 크게 */
-      max-width: 88vw;
+      width: 620px;          /* 🔥 확실히 키움 */
+      max-width: 92vw;
       height: auto;
       display: block;
       margin: 0 auto;
@@ -57,39 +57,39 @@
 
     /* ROLE */
     .role {
-      font-size: 0.95rem;
-      letter-spacing: 0.08em;
+      font-size: 1.15rem;      /* 🔥 가독성 대폭 상승 */
+      letter-spacing: 0.12em;
       color: var(--text-sub);
-      margin-bottom: 26px; /* ⬅ 영상과 간격 줄임 */
+      margin-bottom: 18px;     /* 🔥 영상과 거리 압축 */
     }
 
     /* VIDEO */
     .video-wrap {
-      max-width: 900px;
-      margin: 0 auto 32px; /* ⬅ 전체 밀도 강화 */
+      max-width: 920px;
+      margin: 0 auto 26px;
       border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.45);
+      box-shadow: 0 36px 90px rgba(0, 0, 0, 0.55);
     }
 
     .video-wrap iframe {
       width: 100%;
-      height: 500px;
+      height: 520px;
       border: none;
       background: #000;
     }
 
     /* CONTACT */
     .contact {
-      margin-top: 20px; /* ⬅ 너무 떨어지지 않게 */
-      font-size: 0.95rem;
-      letter-spacing: 0.06em;
+      margin-top: 14px;
+      font-size: 1.05rem;     /* 🔥 연락처도 눈에 띄게 */
+      letter-spacing: 0.08em;
     }
 
     .contact a {
       color: var(--brand-yellow);
       text-decoration: none;
-      border-bottom: 1px solid rgba(201, 162, 77, 0.35);
+      border-bottom: 1px solid rgba(201, 162, 77, 0.4);
       padding-bottom: 2px;
     }
 
@@ -99,11 +99,15 @@
 
     @media (max-width: 768px) {
       .container {
-        padding-top: 70px;
+        padding-top: 60px;
       }
 
       .logo img {
-        width: 300px;
+        width: 360px;
+      }
+
+      .role {
+        font-size: 1rem;
       }
 
       .video-wrap iframe {
@@ -116,7 +120,7 @@
 <body>
   <div class="container">
 
-    <!-- LOGO (HERO) -->
+    <!-- LOGO -->
     <div class="logo">
       <img src="noid-logo.svg" alt="NOID Logo" />
     </div>
