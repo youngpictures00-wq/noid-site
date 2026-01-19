@@ -103,7 +103,7 @@
 
     /* A. ORIGIN & PHILOSOPHY */
     .text-block {
-      margin-bottom: 100px;
+      margin-bottom: 80px;
       position: relative; z-index: 2;
     }
     
@@ -111,7 +111,7 @@
       font-size: 0.9rem;
       letter-spacing: 0.3em;
       color: var(--brand-yellow);
-      margin-bottom: 30px;
+      margin-bottom: 20px;
       font-weight: 700;
       text-transform: uppercase;
       display: inline-block;
@@ -121,23 +121,38 @@
       content: ''; display: block; width: 4px; height: 4px; background: var(--brand-yellow); margin: 10px auto 0; border-radius: 50%;
     }
 
+    .definition-box {
+      margin-bottom: 60px;
+      text-align: left;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 30px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .def-item { margin-bottom: 24px; }
+    .def-item:last-child { margin-bottom: 0; }
+    .def-title { color: var(--brand-yellow); font-weight: 700; font-size: 1.1rem; margin-bottom: 4px; font-family: 'Montserrat', sans-serif; }
+    .def-desc { color: #ccc; font-size: 0.95rem; line-height: 1.6; }
+
     .main-desc {
-      font-size: 1.4rem; 
-      font-weight: 300;
+      font-size: 1.5rem; 
+      font-weight: 500;
       line-height: 1.6;
       color: #fff;
       margin-bottom: 40px;
+      font-family: 'Noto Sans KR', sans-serif;
     }
     .main-desc strong { font-weight: 700; color: var(--brand-yellow); }
 
     .sub-desc {
       font-size: 1.05rem;
       color: var(--text-sub);
-      font-weight: 400;
+      font-weight: 300;
       line-height: 1.8;
-      max-width: 640px;
+      max-width: 680px;
       margin: 0 auto;
     }
+    .highlight { color: #fff; font-weight: 500; }
 
     /* B. COLOR SYSTEM */
     .color-section {
@@ -328,12 +343,13 @@
     @media (max-width: 768px) {
       .logo img { width: 100%; }
       .logo { margin-bottom: 40px; }
-      .main-desc { font-size: 1.1rem; }
+      .main-desc { font-size: 1.2rem; }
       .color-grid { flex-direction: column; gap: 30px; }
       .grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
       .f-services { font-size: 0.85rem; }
       .sep { margin: 0 6px; }
       .brand-section::before { background-size: 30px 30px; }
+      .definition-box { padding: 20px; }
     }
   </style>
 </head>
@@ -346,18 +362,36 @@
     </div>
 
     <section class="brand-section">
-      <div class="identity-header">BRAND STORY</div>
+      <div class="identity-header">BRAND IDENTITY</div>
 
       <div class="text-block">
-        <span class="block-title">Our Philosophy</span>
+        <div class="definition-box">
+          <div class="def-item">
+            <div class="def-title">1. No Identity</div>
+            <div class="def-desc">우리는 정해진 정체성에 갇히지 않습니다. 클라이언트의 본질에 따라 매번 새로운 비주얼 솔루션을 창조하는 변혁적인 공간입니다.</div>
+          </div>
+          <div class="def-item">
+            <div class="def-title">2. New Orbit, Intelligent Design</div>
+            <div class="def-desc">과거의 궤도를 벗어나, 최첨단 AI 기술과 하이엔드 시네마 기술을 결합하여 세상에 없던 비주얼을 설계합니다.</div>
+          </div>
+          <div class="def-item">
+            <div class="def-title">3. Node + Id</div>
+            <div class="def-desc">과거와 미래를 잇는 연결점(Node)이자, 인간의 본능(Id)적인 아름다움을 자극하는 콘텐츠를 만듭니다.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-block">
+        <span class="block-title">Brand Story</span>
         <div class="main-desc">
-          "NOID originates from <strong>'NO IDentity'</strong>."<br>
-          우리는 하나의 단어로 정의되지 않습니다.
+          "소리의 질감에서 빛의 온도를 읽고,<br>
+          픽셀의 깊이에서 브랜드의 철학을 봅니다."
         </div>
         <div class="sub-desc">
-          NOID의 심볼은 고정된 형태의 <strong>'해체와 재구축(Deconstruction)'</strong>을 표현합니다.<br>
-          왼쪽으로 흩어지는 픽셀(Pixel)은 아날로그의 한계를 넘어,<br>
-          <strong>AI라는 무한한 가능성의 영역</strong>으로 확장되는 과정을 의미합니다.
+          2026년, <span class="highlight">NOID</span>는 10년이 넘는 노련한 현장 경험과 급변하는 AI 시대의 지능적 통찰이 만나 탄생했습니다.<br>
+          캐논 시네마 라인의 압도적 계조, 32비트 플로트 오디오의 무결점 사운드, 그리고 AI가 분석한 날카로운 전략까지.<br><br>
+          <strong>'기술은 인간의 감성을 향할 때 비로소 위대해진다'</strong><br>
+          우리는 이 신념으로 당신의 비즈니스를 시네마틱한 가치로 치환합니다.
         </div>
       </div>
 
