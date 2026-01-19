@@ -50,7 +50,7 @@
       width: 100%;
       max-width: 1000px;
       margin: 0 auto;
-      padding: 80px 24px 60px;
+      padding: 80px 24px 0; /* Footer padding 분리를 위해 하단 패딩 0으로 조정 */
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -251,28 +251,56 @@
       text-transform: uppercase;
     }
 
-    /* --- 5. FOOTER --- */
+    /* --- 5. FOOTER (DESIGNED VER.) --- */
     footer {
       width: 100%;
       border-top: 1px solid rgba(255,255,255,0.05);
-      padding-top: 40px;
+      padding: 80px 20px 60px;
       text-align: center;
-      font-size: 0.8rem;
-      color: var(--text-sub);
+      background-color: #121411;
+      margin-top: 60px; /* 본문과 간격 */
     }
+    
     .contact-btn {
-      display: inline-block;
-      margin-bottom: 24px;
-      font-size: 1.1rem;
+      font-size: 1.25rem;
       color: var(--brand-yellow);
       text-decoration: none;
       border-bottom: 1px solid rgba(220, 176, 69, 0.4);
-      padding-bottom: 4px;
+      padding-bottom: 6px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
       transition: all 0.3s;
+      display: inline-block;
+      margin-bottom: 50px;
     }
     .contact-btn:hover {
       color: #fff;
       border-bottom-color: #fff;
+    }
+
+    .footer-brand {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 16px;
+      letter-spacing: 0.1em;
+    }
+
+    .footer-details {
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 0.9rem;
+      color: #888;
+      line-height: 1.8;
+      font-weight: 300;
+      margin-bottom: 50px;
+    }
+
+    .copyright {
+      font-size: 0.75rem;
+      color: #444;
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: 0.05em;
     }
 
     /* Animation */
@@ -287,6 +315,7 @@
       .services { font-size: 0.8rem; gap: 8px; }
       .color-grid { flex-direction: column; gap: 20px; }
       .story-block { padding-left: 16px; }
+      .footer-details { font-size: 0.85rem; }
     }
   </style>
 </head>
@@ -398,18 +427,22 @@
       </div>
     </div>
 
-    <footer>
+  </div> <footer>
+    <div>
       <a href="mailto:contact@noid-ai-studio.com" class="contact-btn">contact@noid-ai-studio.com</a>
-      
-      <div style="opacity: 0.5; line-height: 1.6; margin-top: 20px;">
-        <strong>NOID</strong> | Creative Director: Seo Young Jin<br>
-        Business License: 241-40-01310<br>
-        Address: 경기도 광명시 광명동 297-50<br>
-        <br>
-        © 2026 NOID AI STUDIO. All Rights Reserved.
-      </div>
-    </footer>
+    </div>
+    
+    <div class="footer-brand">NOID</div>
+    <div class="footer-details">
+      Creative Director : Seo Young Jin<br>
+      Business License : 241-40-01310<br>
+      Address : 경기도 광명시 광명동 297-50
+    </div>
 
-  </div>
+    <div class="copyright">
+      © 2026 NOID AI STUDIO. All Rights Reserved.
+    </div>
+  </footer>
+
 </body>
 </html>
