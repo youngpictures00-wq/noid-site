@@ -27,37 +27,43 @@
       margin: 0;
       min-height: 100vh;
       background-color: var(--bg-dark);
-      background: radial-gradient(circle at top, var(--bg-gradient) 0%, var(--bg-dark) 70%);
+      /* 배경 그라데이션을 조금 더 깊이감 있게 조정 */
+      background: radial-gradient(circle at 50% 30%, var(--bg-gradient) 0%, var(--bg-dark) 80%);
       color: var(--text-main);
       font-family: 'Montserrat', 'Noto Sans KR', sans-serif;
       line-height: 1.8;
       word-break: keep-all;
+      overflow-x: hidden; /* 가로 스크롤 방지 */
     }
 
     .container {
       width: 100%;
-      max-width: 1100px; /* 4열 배치를 위해 폭을 조금 넓힘 */
+      max-width: 1100px;
       margin: 0 auto;
       padding: 100px 24px 0;
       display: flex;
       flex-direction: column;
       align-items: center;
+      position: relative; /* 배경 요소를 위한 기준점 */
     }
 
     /* --- 1. HERO (LOGO ONLY) --- */
     .logo {
-      margin-bottom: 100px;
+      /* 수정: 간격을 100px -> 60px로 대폭 줄임 */
+      margin-bottom: 60px;
       animation: fadeIn 1.2s ease-out;
       width: 100%;
       display: flex;
       justify-content: center;
+      position: relative; z-index: 2; /* 배경보다 위에 오도록 */
     }
     .logo img {
       width: 680px;
       max-width: 95vw;
       height: auto;
       display: block;
-      filter: drop-shadow(0 0 20px rgba(220, 176, 69, 0.1));
+      /* 글로우 효과를 조금 더 고급스럽게 다듬음 */
+      filter: drop-shadow(0 0 25px rgba(220, 176, 69, 0.15));
     }
 
     /* --- 2. BRAND STORY (CENTERED) --- */
@@ -67,20 +73,44 @@
       margin-bottom: 140px;
       text-align: center;
       animation: fadeIn 1.5s ease-out;
+      position: relative; /* 배경 패턴을 위한 기준점 */
+      padding: 60px 0; /* 위아래 여백 추가 */
+    }
+
+    /* (NEW) 허전함을 채워줄 은은한 글리치 배경 패턴 추가 */
+    .brand-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 120%; /* 컨테이너보다 넓게 */
+      height: 100%;
+      /* CSS로 만드는 은은한 디지털 노이즈 패턴 */
+      background-image: 
+        linear-gradient(to right, rgba(220, 176, 69, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(220, 176, 69, 0.03) 1px, transparent 1px);
+      background-size: 40px 40px; /* 격자 크기 */
+      opacity: 0.5; /* 아주 은은하게 */
+      z-index: -1; /* 텍스트 뒤로 */
+      mask-image: radial-gradient(circle at center, black 40%, transparent 80%); /* 중앙만 보이게 마스킹 */
+      -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
     }
     
+    /* 수정: 타이틀을 "BRAND STORY"로 변경하고 스타일 조정 */
     .identity-header {
-      font-size: 1.8rem;
-      font-weight: 800;
-      margin-bottom: 80px;
-      letter-spacing: 0.1em;
-      color: #555;
+      font-size: 1.6rem; /* 크기 약간 줄임 */
+      font-weight: 700;
+      margin-bottom: 60px; /* 간격 조정 */
+      letter-spacing: 0.15em;
+      color: var(--brand-yellow); /* 브랜드 컬러로 강조 */
       text-transform: uppercase;
+      opacity: 0.8;
     }
 
     /* A. ORIGIN & PHILOSOPHY */
     .text-block {
       margin-bottom: 100px;
+      position: relative; z-index: 2;
     }
     
     .block-title {
@@ -120,6 +150,7 @@
       margin-top: 80px;
       padding-top: 80px;
       border-top: 1px solid rgba(255,255,255,0.05);
+      position: relative; z-index: 2;
     }
     .color-grid {
       display: flex;
@@ -151,6 +182,7 @@
       box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
       border: 1px solid rgba(255, 255, 255, 0.08);
       margin-bottom: 140px;
+      position: relative; z-index: 2;
     }
     .video-wrap iframe { width: 100%; height: 100%; border: none; }
 
@@ -167,7 +199,6 @@
 
     .grid {
       display: grid;
-      /* 핵심 수정: 4개가 한 줄에 들어가도록 최소 너비를 줄이고 반응형 설정 */
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 24px;
       width: 100%;
@@ -207,17 +238,15 @@
       padding: 80px 24px 50px;
       margin-top: 80px;
       border-top: 1px solid rgba(255,255,255,0.05);
-      text-align: center; /* 전체 중앙 정렬 */
+      text-align: center;
     }
     .footer-content {
       max-width: 1000px;
       margin: 0 auto;
-      /* Flex 제거하고 중앙 정렬로 변경 */
       display: block; 
       text-align: center;
       margin-bottom: 50px;
     }
-    /* 왼쪽/오른쪽 구분 제거 */
     .footer-left, .footer-right { text-align: center; width: 100%; }
 
     .f-name {
@@ -239,7 +268,6 @@
       margin: 8px 0;
       font-size: 0.95rem;
       color: #bbb;
-      /* 연락처 정보도 중앙 정렬 */
       display: flex; justify-content: center; align-items: center;
     }
     .f-contact-info a { color: #bbb; text-decoration: none; transition: color 0.3s; }
@@ -250,10 +278,9 @@
       font-size: 0.85rem !important;
       color: #666 !important;
       line-height: 1.6;
-      display: block !important; /* 블록으로 변경하여 중앙 정렬 적용 */
+      display: block !important;
     }
     
-    /* 로고는 제거했지만 혹시 몰라 스타일은 유지 (안 보임) */
     .footer-logo-img { display: none; } 
     .footer-slogan { display: none; }
 
@@ -282,12 +309,13 @@
     }
     @media (max-width: 768px) {
       .logo img { width: 100%; }
+      .logo { margin-bottom: 40px; } /* 모바일 간격 조정 */
       .main-desc { font-size: 1.1rem; }
       .color-grid { flex-direction: column; gap: 30px; }
-      /* 모바일에서도 4개가 한 줄은 너무 좁으므로 2줄로 변경 */
       .grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
       .f-services { font-size: 0.85rem; }
       .sep { margin: 0 6px; }
+      .brand-section::before { background-size: 30px 30px; } /* 모바일 패턴 크기 조정 */
     }
   </style>
 </head>
@@ -300,7 +328,7 @@
     </div>
 
     <section class="brand-section">
-      <div class="identity-header">EVOLVING VISION</div>
+      <div class="identity-header">BRAND STORY</div>
 
       <div class="text-block">
         <span class="block-title">Our Philosophy</span>
@@ -391,8 +419,7 @@
         License: 241-40-01310 <br>
         Address: 경기도 광명시 광명동 297-50
       </div>
-      
-      </div>
+    </div>
 
     <div class="footer-bottom-line">
       <div class="f-services">
