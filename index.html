@@ -67,7 +67,7 @@
     .brand-section {
       width: 100%;
       max-width: 800px;
-      margin-bottom: 140px;
+      margin-bottom: 100px; /* 간격 조정 */
       text-align: center;
       animation: fadeIn 1.5s ease-out;
       position: relative;
@@ -91,7 +91,7 @@
       -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
     }
     
-    .identity-header {
+    .section-header {
       font-size: 1.6rem;
       font-weight: 700;
       margin-bottom: 60px;
@@ -99,6 +99,7 @@
       color: var(--brand-yellow);
       text-transform: uppercase;
       opacity: 0.8;
+      text-align: center;
     }
 
     /* A. ORIGIN & PHILOSOPHY */
@@ -181,6 +182,55 @@
     .color-info h4 { margin: 0 0 6px 0; font-size: 1rem; color: #fff; font-weight: 700; letter-spacing: 0.05em; }
     .color-info p { margin: 0; font-size: 0.8rem; color: var(--text-sub); }
 
+
+    /* --- [NEW] AI WORKFLOW SECTION --- */
+    .ai-section {
+      width: 100%;
+      margin-bottom: 140px;
+      position: relative; z-index: 2;
+    }
+    .ai-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 30px;
+        width: 100%;
+    }
+    .ai-tool-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 8px;
+        padding: 30px 20px;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+    .ai-tool-card:hover {
+        border-color: var(--brand-yellow);
+        box-shadow: 0 10px 30px rgba(220, 176, 69, 0.1);
+        transform: translateY(-5px);
+    }
+    /* 로고 대체 스타일 (이미지 없이도 그럴듯하게) */
+    .ai-logo-box {
+        width: 60px; height: 60px;
+        margin: 0 auto 20px;
+        background: var(--bg-dark);
+        border: 1px solid var(--brand-yellow);
+        border-radius: 12px;
+        display: flex; align-items: center; justify-content: center;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 800; color: var(--brand-yellow); font-size: 1.2rem;
+    }
+    .ai-tool-name {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.1rem; font-weight: 700; color: #fff;
+        margin-bottom: 15px;
+    }
+    .ai-tool-desc {
+        font-size: 0.9rem; color: var(--text-sub); line-height: 1.6;
+        word-break: keep-all;
+    }
+    .ai-tool-desc b { color: #fff; font-weight: 500; }
+
+
     /* --- 3. SHOWREEL --- */
     .video-wrap {
       width: 100%;
@@ -196,16 +246,6 @@
     .video-wrap iframe { width: 100%; height: 100%; border: none; }
 
     /* --- 4. SELECTED WORKS (4-COLUMN GRID) --- */
-    .portfolio-header {
-      font-size: 1.5rem;
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: 50px;
-      letter-spacing: 0.15em;
-      color: var(--text-main);
-      text-transform: uppercase;
-    }
-
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -345,6 +385,7 @@
       .logo { margin-bottom: 40px; }
       .main-desc { font-size: 1.2rem; }
       .color-grid { flex-direction: column; gap: 30px; }
+      .ai-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; } /* 모바일 AI 그리드 조정 */
       .grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
       .f-services { font-size: 0.85rem; }
       .sep { margin: 0 6px; }
@@ -362,7 +403,7 @@
     </div>
 
     <section class="brand-section">
-      <div class="identity-header">BRAND IDENTITY</div>
+      <div class="section-header">BRAND IDENTITY</div>
 
       <div class="text-block">
         <div class="definition-box">
@@ -416,6 +457,44 @@
       </div>
     </section>
 
+    <section class="ai-section">
+        <div class="section-header">AI INTELLIGENT WORKFLOW</div>
+        <div class="ai-grid">
+            <div class="ai-tool-card">
+                <div class="ai-logo-box">GPT</div> <div class="ai-tool-name">ChatGPT</div>
+                <div class="ai-tool-desc">
+                    <b>전략가 & 설계자</b><br>
+                    시나리오 및 세계관 설계. 치밀한 프롬프트 엔지니어링으로 프로젝트의 뼈대를 구축합니다.
+                </div>
+            </div>
+            <div class="ai-tool-card">
+                <div class="ai-logo-box">Gemini</div>
+                <div class="ai-tool-name">Gemini</div>
+                <div class="ai-tool-desc">
+                    <b>멀티모달 분석가</b><br>
+                    텍스트와 이미지를 동시에 이해하는 능력으로 시각적 트렌드를 분석하고 레퍼런스를 확장합니다.
+                </div>
+            </div>
+            <div class="ai-tool-card">
+                <div class="ai-logo-box">Grok</div>
+                <div class="ai-tool-name">Grok</div>
+                <div class="ai-tool-desc">
+                    <b>트렌드 리얼리스트</b><br>
+                    실시간 마켓 인사이트 도출. 가장 날카롭고 트렌디한 관점으로 시장의 흐름을 읽어냅니다.
+                </div>
+            </div>
+            <div class="ai-tool-card">
+                <div class="ai-logo-box">Suno</div>
+                <div class="ai-tool-name">Suno AI</div>
+                <div class="ai-tool-desc">
+                    <b>사운드 아키텍트</b><br>
+                    영상의 감정선을 이끄는 고유한 시네마틱 BGM과 음향 효과를 생성합니다.
+                </div>
+            </div>
+        </div>
+    </section>
+
+
     <div class="video-wrap">
       <iframe
         src="https://www.youtube.com/embed/cwQlH5tPD1A?rel=0&modestbranding=1&controls=1"
@@ -425,7 +504,7 @@
       ></iframe>
     </div>
 
-    <div class="portfolio-header">SELECTED WORKS & R&D</div>
+    <div class="section-header">SELECTED WORKS & R&D</div>
     <div class="grid">
       <a class="card" href="http://naver.me/xeUQP1Z7" target="_blank">
         <div class="card-img-wrap">
