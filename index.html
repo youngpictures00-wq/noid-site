@@ -44,7 +44,7 @@
       align-items: center;
     }
 
-    /* --- 1. HERO & LOGO --- */
+    /* --- 1. HERO (LOGO AREA) --- */
     .logo {
       margin-bottom: 20px;
       animation: fadeIn 1.2s ease-out;
@@ -61,7 +61,7 @@
       font-weight: 500;
       letter-spacing: 0.15em;
       color: var(--text-sub);
-      margin-bottom: 30px;
+      margin-bottom: 20px;
       text-transform: uppercase;
       text-align: center;
     }
@@ -71,7 +71,7 @@
       justify-content: center;
       flex-wrap: wrap;
       gap: 12px;
-      margin-bottom: 50px;
+      margin-bottom: 120px; /* 브랜드 소개와 간격 넉넉히 */
       font-size: 0.9rem;
       font-weight: 700;
       letter-spacing: 0.2em;
@@ -82,7 +82,141 @@
       color: rgba(220, 176, 69, 0.3);
     }
 
-    /* --- 2. SHOWREEL --- */
+    /* --- 2. BRAND STORY SECTION --- */
+    .brand-section {
+      width: 100%;
+      max-width: 900px;
+      margin-bottom: 120px;
+      text-align: left;
+    }
+    
+    .identity-header {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 80px;
+      text-align: center;
+      letter-spacing: -0.02em;
+      background: linear-gradient(to right, #fff, #888);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* (NEW) ETYMOLOGY BLOCK : 어원 설명 */
+    .etymology-block {
+      text-align: center;
+      margin-bottom: 100px;
+      padding: 0 20px;
+      animation: fadeIn 1.5s ease-out;
+    }
+    .etymology-title {
+      font-size: 0.85rem;
+      letter-spacing: 0.25em;
+      color: var(--brand-yellow);
+      margin-bottom: 20px;
+      font-weight: 700;
+      text-transform: uppercase;
+      display: inline-block;
+      border-bottom: 1px solid rgba(220, 176, 69, 0.3);
+      padding-bottom: 5px;
+    }
+    .etymology-text {
+      font-size: 1.6rem; /* 큼지막하게 강조 */
+      font-weight: 300;
+      line-height: 1.6;
+      color: #fff;
+    }
+    .etymology-text strong {
+      font-weight: 700;
+      color: var(--brand-yellow);
+    }
+    .etymology-sub {
+      margin-top: 20px;
+      font-size: 1rem;
+      color: var(--text-sub);
+      font-weight: 400;
+    }
+
+    /* Philosophy Block */
+    .philosophy-wrap {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+      margin-bottom: 80px;
+      padding-top: 60px;
+      border-top: 1px solid rgba(255,255,255,0.05); /* 구분선 추가 */
+    }
+
+    .story-block {
+      flex: 1;
+      padding-left: 24px;
+      border-left: 3px solid var(--brand-yellow);
+    }
+
+    .visual-block {
+      flex: 0.8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .identity-logo-img {
+      width: 100%;
+      max-width: 320px;
+      opacity: 0.95;
+    }
+
+    .story-title {
+      font-size: 0.85rem;
+      letter-spacing: 0.25em;
+      color: var(--brand-yellow);
+      margin-bottom: 16px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .story-desc {
+      font-size: 1.05rem;
+      color: #ddd;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+    .story-desc strong {
+      font-weight: 600;
+      color: #fff;
+    }
+
+    /* Color Grid */
+    .color-grid {
+      display: flex;
+      gap: 40px;
+      margin-top: 24px;
+      padding-left: 24px;
+      border-left: 3px solid transparent;
+    }
+    .color-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .color-swatch {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+      border: 2px solid rgba(255,255,255,0.05);
+    }
+    .color-info h4 {
+      margin: 0 0 4px 0;
+      font-size: 0.9rem;
+      color: #fff;
+      font-weight: 700;
+    }
+    .color-info p {
+      margin: 0;
+      font-size: 0.75rem;
+      color: var(--text-sub);
+    }
+
+    /* --- 3. SHOWREEL --- */
     .video-wrap {
       width: 100%;
       max-width: 960px;
@@ -91,7 +225,7 @@
       overflow: hidden;
       box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
       border: 1px solid rgba(255, 255, 255, 0.08);
-      margin-bottom: 100px;
+      margin-bottom: 120px;
     }
     .video-wrap iframe {
       width: 100%;
@@ -99,105 +233,7 @@
       border: none;
     }
 
-    /* --- 3. BRAND IDENTITY (Layout Updated) --- */
-    .brand-section {
-      width: 100%;
-      max-width: 900px; /* 로고 병기를 위해 폭을 넓힘 */
-      margin-bottom: 120px;
-      text-align: left;
-    }
-    
-    .identity-header {
-      font-size: 2rem;
-      font-weight: 800;
-      margin-bottom: 60px;
-      text-align: center;
-      letter-spacing: -0.02em;
-      background: linear-gradient(to right, #fff, #888);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    /* Philosophy Block: Flex Layout */
-    .philosophy-wrap {
-      display: flex;
-      align-items: center;
-      gap: 40px;
-      margin-bottom: 80px; /* 컬러 섹션과의 간격 */
-    }
-
-    .story-block {
-      flex: 1; /* 텍스트 영역 */
-      padding-left: 24px;
-      border-left: 3px solid var(--brand-yellow);
-    }
-
-    /* 로고가 들어갈 우측 영역 */
-    .visual-block {
-      flex: 0.8; /* 이미지 영역 비율 */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .identity-logo-img {
-      width: 100%;
-      max-width: 300px; /* 너무 크지 않게 제한 */
-      opacity: 0.9;
-      filter: drop-shadow(0 0 10px rgba(220, 176, 69, 0.1));
-    }
-
-    .story-title {
-      font-size: 0.85rem;
-      letter-spacing: 0.25em;
-      color: var(--brand-yellow);
-      margin-bottom: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-
-    .story-desc {
-      font-size: 1.1rem;
-      color: #ddd;
-      font-weight: 300;
-    }
-    .story-desc strong {
-      font-weight: 600;
-      color: #fff;
-    }
-
-    /* Color Grid Definition */
-    .color-grid {
-      display: flex;
-      gap: 40px;
-      margin-top: 24px;
-      padding-left: 24px; /* 라인 맞춤 */
-      border-left: 3px solid transparent; /* 라인 자리 확보 */
-    }
-    .color-item {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    .color-swatch {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-      border: 2px solid rgba(255,255,255,0.05);
-    }
-    .color-info h4 {
-      margin: 0 0 4px 0;
-      font-size: 0.95rem;
-      color: #fff;
-      font-weight: 700;
-    }
-    .color-info p {
-      margin: 0;
-      font-size: 0.8rem;
-      color: var(--text-sub);
-    }
-
-    /* --- 4. PORTFOLIO GRID --- */
+    /* --- 4. SELECTED WORKS --- */
     .portfolio-header {
       font-size: 1.5rem;
       font-weight: 700;
@@ -238,7 +274,6 @@
       font-size: 0.8rem;
       font-weight: 600;
     }
-    
     .card-info { padding: 16px; }
     .card-title {
       font-size: 0.95rem;
@@ -253,7 +288,7 @@
       text-transform: uppercase;
     }
 
-    /* --- 5. FOOTER (Business Card Style) --- */
+    /* --- 5. FOOTER --- */
     .card-footer {
       width: 100%;
       background-color: #23261e;
@@ -291,13 +326,9 @@
       font-size: 0.9rem;
       color: #ccc;
     }
-    .f-contact-info a {
-      color: #ccc; text-decoration: none; transition: color 0.3s;
-    }
+    .f-contact-info a { color: #ccc; text-decoration: none; transition: color 0.3s; }
     .f-contact-info a:hover { color: #dcb045; }
-    .label {
-      font-weight: 700; color: #dcb045; margin-right: 8px; display: inline-block; width: 15px;
-    }
+    .label { font-weight: 700; color: #dcb045; margin-right: 8px; display: inline-block; width: 15px; }
     .biz-info {
       margin-top: 16px !important;
       font-size: 0.8rem !important;
@@ -343,7 +374,8 @@
       to { opacity: 1; transform: translateY(0); }
     }
     @media (max-width: 768px) {
-      .philosophy-wrap { flex-direction: column-reverse; gap: 20px; text-align: center; } /* 모바일에서 로고 위, 텍스트 아래 */
+      .etymology-text { font-size: 1.3rem; }
+      .philosophy-wrap { flex-direction: column-reverse; gap: 20px; text-align: center; }
       .story-block { padding-left: 0; border-left: none; border-top: 3px solid var(--brand-yellow); padding-top: 20px;}
       .color-grid { padding-left: 0; flex-direction: column; gap: 20px; }
       .footer-content { flex-direction: column-reverse; align-items: center; text-align: center; gap: 30px; }
@@ -360,9 +392,7 @@
     <div class="logo">
       <img src="noid-logo.svg" alt="NOID LOGO" />
     </div>
-
     <div class="role">Creative Director · Seo Young Jin</div>
-
     <div class="services">
       <span>Video</span><span class="separator">/</span>
       <span>Photo</span><span class="separator">/</span>
@@ -370,35 +400,35 @@
       <span>AI Production</span>
     </div>
 
-    <div class="video-wrap">
-      <iframe
-        src="https://www.youtube.com/embed/cwQlH5tPD1A?rel=0&modestbranding=1&controls=1"
-        title="NOID Showreel"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe>
-    </div>
-
     <section class="brand-section">
       <div class="identity-header">EVOLVING VISION</div>
 
+      <div class="etymology-block">
+        <span class="etymology-title">Origin of Name</span>
+        <div class="etymology-text">
+          "NOID originates from <strong>'NO IDentity'</strong>."<br>
+        </div>
+        <div class="etymology-sub">
+          우리는 하나의 단어로 정의되지 않습니다.<br>
+          정해진 틀(ID)을 거부하고, AI를 통해 <strong>무한히 확장하는 비정형의 크리에이티브</strong>를 지향합니다.
+        </div>
+      </div>
+
       <div class="philosophy-wrap">
-        
         <div class="story-block">
           <h2 class="story-title">Design Philosophy</h2>
           <p class="story-desc">
             <strong>"The Digital Glitch"</strong><br>
-            NOID의 심볼은 고정된 관념의 <strong>'해체와 재구축'</strong>을 상징합니다.<br>
+            NOID의 심볼은 이러한 '비정형성'을 시각화하기 위해<br>
+            고정된 형태의 <strong>'해체와 재구축(Deconstruction)'</strong>을 표현합니다.<br>
             <br>
             왼쪽으로 흩어지는 픽셀(Pixel)은 아날로그의 한계를 넘어,
-            <strong>AI라는 무한한 가능성의 영역</strong>으로 확장되는 과정을 시각화했습니다.
+            <strong>AI라는 무한한 가능성의 영역</strong>으로 확장되는 과정을 의미합니다.
           </p>
         </div>
-
         <div class="visual-block">
           <img src="noid-logo.svg" alt="NOID Glitch Logo" class="identity-logo-img">
         </div>
-
       </div>
 
       <div class="story-block" style="border:none; padding-left:0;">
@@ -406,7 +436,6 @@
         <p class="story-desc" style="margin-bottom: 24px; margin-left:24px;">
           NOID의 컬러는 <strong>'현실(Analog)'</strong>과 <strong>'가상(Digital)'</strong>의 충돌과 융합을 상징합니다.
         </p>
-        
         <div class="color-grid">
           <div class="color-item">
             <div class="color-swatch" style="background: #2f3326;"></div>
@@ -415,7 +444,6 @@
               <p>The Ground Zero<br>(변하지 않는 본질과 현실의 무게)</p>
             </div>
           </div>
-          
           <div class="color-item">
             <div class="color-swatch" style="background: #dcb045;"></div>
             <div class="color-info">
@@ -426,6 +454,15 @@
         </div>
       </div>
     </section>
+
+    <div class="video-wrap">
+      <iframe
+        src="https://www.youtube.com/embed/cwQlH5tPD1A?rel=0&modestbranding=1&controls=1"
+        title="NOID Showreel"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
 
     <div class="portfolio-header">SELECTED WORKS & R&D</div>
     <div class="grid">
@@ -461,11 +498,9 @@
 
   </div> <footer class="card-footer">
     <div class="footer-content">
-      
       <div class="footer-left">
         <div class="f-name">Youngjin Seo</div>
         <div class="f-role">Creative Director · AI Production</div>
-        
         <div class="f-contact-info">
           <p><span class="label">M</span> +82.10.9507.2639</p>
           <p><span class="label">E</span> <a href="mailto:contact@noid-ai-studio.com">contact@noid-ai-studio.com</a></p>
@@ -475,14 +510,11 @@
           </p>
         </div>
       </div>
-
       <div class="footer-right">
         <img src="noid-logo.svg" alt="NOID LOGO" class="footer-logo-img">
         <div class="footer-slogan">EVOLVING VISION</div>
       </div>
-    
     </div>
-
     <div class="footer-bottom-line">
       <div class="f-services">
         VIDEO <span class="sep">|</span> 
