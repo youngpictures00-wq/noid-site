@@ -2,132 +2,151 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>NOID | Visual Brand Director 서영진</title>
+  <title>NOID | Visual Brand Director</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
-    :root{
-      --bg:#1C1F1A;
-      --text:#F2F0E8;     /* 명함 느낌의 아이보리 */
-      --sub:#A7AA9E;      /* 카키 그레이 */
-      --accent:#C8A45A;   /* 골드/브론즈 포인트 */
-      --line:rgba(242,240,232,0.10);
+    :root {
+      --khaki-bg: #1f221c;
+      --khaki-dark: #181a15;
+      --brand-yellow: #c9a24d;
+      --text-main: #eaeae3;
+      --text-sub: #9c9c8f;
     }
 
-    *{box-sizing:border-box;}
-    body{
-      margin:0;
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background:var(--bg);
-      color:var(--text);
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    * {
+      box-sizing: border-box;
     }
 
-    .container{
-      width:100%;
-      max-width:520px;
-      padding:0 22px;
-      text-align:center;
+    body {
+      margin: 0;
+      background: radial-gradient(
+        circle at top,
+        #262a22 0%,
+        var(--khaki-bg) 45%,
+        var(--khaki-dark) 100%
+      );
+      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+        Helvetica, Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
     }
 
-    /* 로고 */
-    .logo{
-      width:180px;               /* 필요하면 140~220 사이로 조절 */
-      max-width:60vw;
-      height:auto;
-      display:block;
-      margin:0 auto 14px auto;
-      filter: drop-shadow(0 8px 20px rgba(0,0,0,0.35));
+    .container {
+      max-width: 920px;
+      width: 100%;
+      padding: 60px 24px 80px;
+      text-align: center;
     }
 
-    .role{
-      font-size:0.95rem;
-      color:var(--sub);
-      margin-top:6px;
-      margin-bottom:6px;
+    .logo {
+      margin-bottom: 28px;
     }
 
-    .tagline{
-      font-size:0.9rem;
-      color:var(--accent);
-      letter-spacing:0.04em;
-      margin-bottom:22px;
+    .logo img {
+      width: 140px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
     }
 
-    .video{
-      position:relative;
-      width:100%;
-      padding-top:56.25%;
-      border:1px solid var(--line);
-      border-radius:10px;
-      overflow:hidden;
-      margin-bottom:18px;
-      background:rgba(0,0,0,0.12);
-    }
-    .video iframe{
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      border:0;
+    h1 {
+      margin: 0;
+      font-size: 2.2rem;
+      letter-spacing: 0.12em;
+      font-weight: 600;
     }
 
-    .contact{
-      font-size:0.78rem;
-      color:var(--sub);
-      letter-spacing:0.06em;
-      padding-top:8px;
+    .role {
+      margin-top: 10px;
+      font-size: 0.95rem;
+      color: var(--text-sub);
+      letter-spacing: 0.08em;
     }
 
-    .contact a{
-      color:var(--text);
-      text-decoration:none;
-      border-bottom:1px solid rgba(200,164,90,0.35);
-      padding-bottom:2px;
-    }
-    .contact a:hover{
-      border-bottom-color:rgba(200,164,90,0.9);
+    .tagline {
+      margin-top: 18px;
+      font-size: 1rem;
+      color: var(--brand-yellow);
+      letter-spacing: 0.14em;
     }
 
-    /* 접근성용 숨김 텍스트 */
-    .sr-only{
-      position:absolute;
-      width:1px;
-      height:1px;
-      padding:0;
-      margin:-1px;
-      overflow:hidden;
-      clip:rect(0,0,0,0);
-      white-space:nowrap;
-      border:0;
+    .video-wrap {
+      margin: 46px auto 38px;
+      max-width: 760px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+    }
+
+    .video-wrap iframe {
+      width: 100%;
+      height: 430px;
+      border: none;
+      background: #000;
+    }
+
+    .contact {
+      margin-top: 30px;
+      font-size: 0.95rem;
+      letter-spacing: 0.06em;
+    }
+
+    .contact a {
+      color: var(--brand-yellow);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(201, 162, 77, 0.35);
+      padding-bottom: 2px;
+    }
+
+    .contact a:hover {
+      border-bottom-color: var(--brand-yellow);
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      .video-wrap iframe {
+        height: 240px;
+      }
     }
   </style>
 </head>
 
 <body>
-  <main class="container">
-    <!-- 로고 이미지 파일을 repo에 logo.png로 업로드 -->
-    <img class="logo" src="logo.png" alt="NOID logo" />
-    <h1 class="sr-only">NOID</h1>
-
-    <div class="role">Visual Brand Director · 서영진</div>
-    <div class="tagline">Evolving Vision</div>
-
-    <section class="video" aria-label="NOID showreel video">
-      <iframe
-        src="https://www.youtube.com/embed/cwQlH5tPD1A"
-        title="NOID Video"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
-    </section>
-
-    <div class="contact">
-      <a href="mailto:contact@noid.studio">contact@noid.studio</a>
+  <div class="container">
+    <!-- 로고 -->
+    <div class="logo">
+      <!-- 👇 로고 파일명 맞게 수정 -->
+      <img src="noid-logo.svg" alt="NOID Logo" />
     </div>
-  </main>
+
+    <!-- 타이틀 -->
+    <h1>NOID</h1>
+    <div class="role">Visual Brand Director · 서영진</div>
+    <div class="tagline">EVOLVING VISION</div>
+
+    <!-- 영상 -->
+    <div class="video-wrap">
+      <iframe
+        src="https://www.youtube.com/embed/cwQlH5tPD1A?rel=0&modestbranding=1"
+        title="NOID Showreel"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+
+    <!-- 연락처 -->
+    <div class="contact">
+      <a href="mailto:contact@noid-ai-studio.com">
+        contact@noid-ai-studio.com
+      </a>
+    </div>
+  </div>
 </body>
 </html>
