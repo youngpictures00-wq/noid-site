@@ -14,22 +14,14 @@
       --text-sub: #b6b6a6;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
       min-height: 100vh;
-      background: radial-gradient(
-        circle at top,
-        #2a2f26 0%,
-        var(--khaki-bg) 40%,
-        var(--khaki-dark) 100%
-      );
+      background: radial-gradient(circle at top, #2a2f26 0%, var(--khaki-bg) 40%, var(--khaki-dark) 100%);
       color: var(--text-main);
-      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-        Helvetica, Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -38,17 +30,16 @@
     .container {
       width: 100%;
       max-width: 1100px;
-      padding: 70px 24px 70px;
+      padding: 70px 24px;
       text-align: center;
     }
 
     /* LOGO */
     .logo {
-      margin-bottom: 6px; /* 🔥 간격 최소 */
+      margin-bottom: 6px;
     }
-
     .logo img {
-      width: 620px;          /* 🔥 확실히 키움 */
+      width: 620px;
       max-width: 92vw;
       height: auto;
       display: block;
@@ -57,10 +48,28 @@
 
     /* ROLE */
     .role {
-      font-size: 1.15rem;      /* 🔥 가독성 대폭 상승 */
+      font-size: 1.2rem;
       letter-spacing: 0.12em;
       color: var(--text-sub);
-      margin-bottom: 18px;     /* 🔥 영상과 거리 압축 */
+      margin-bottom: 10px;
+    }
+
+    /* SERVICES */
+    .services {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+      font-size: 0.95rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--brand-yellow);
+    }
+
+    .services span.separator {
+      color: rgba(201, 162, 77, 0.45);
+      padding: 0 2px;
     }
 
     /* VIDEO */
@@ -82,7 +91,7 @@
     /* CONTACT */
     .contact {
       margin-top: 14px;
-      font-size: 1.05rem;     /* 🔥 연락처도 눈에 띄게 */
+      font-size: 1.05rem;
       letter-spacing: 0.08em;
     }
 
@@ -98,21 +107,13 @@
     }
 
     @media (max-width: 768px) {
-      .container {
-        padding-top: 60px;
+      .logo img { width: 360px; }
+      .role { font-size: 1rem; }
+      .services {
+        font-size: 0.85rem;
+        letter-spacing: 0.14em;
       }
-
-      .logo img {
-        width: 360px;
-      }
-
-      .role {
-        font-size: 1rem;
-      }
-
-      .video-wrap iframe {
-        height: 240px;
-      }
+      .video-wrap iframe { height: 240px; }
     }
   </style>
 </head>
@@ -128,6 +129,17 @@
     <!-- ROLE -->
     <div class="role">Visual Brand Director · 서영진</div>
 
+    <!-- SERVICES -->
+    <div class="services" aria-label="NOID services">
+      <span>VIDEO</span>
+      <span class="separator">|</span>
+      <span>PHOTO</span>
+      <span class="separator">|</span>
+      <span>DRONE</span>
+      <span class="separator">|</span>
+      <span>AI PRODUCTION</span>
+    </div>
+
     <!-- SHOWREEL -->
     <div class="video-wrap">
       <iframe
@@ -140,9 +152,7 @@
 
     <!-- CONTACT -->
     <div class="contact">
-      <a href="mailto:contact@noid-ai-studio.com">
-        contact@noid-ai-studio.com
-      </a>
+      <a href="mailto:contact@noid-ai-studio.com">contact@noid-ai-studio.com</a>
     </div>
 
   </div>
