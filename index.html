@@ -12,24 +12,12 @@
 
   <style>
     :root {
-      /* [NOID Brand Colors : KHAKI & YELLOW Edition] */
-      
-      /* 배경: 아주 어두운 카키 블랙 (Base) */
+      /* [NOID Brand Colors] */
       --bg-dark: #161814;
-      
-      /* 그라데이션 중심: 은은한 딥 카키 (Static Khaki) */
       --bg-gradient: #282b22;
-      
-      /* 포인트: 고급스러운 메탈릭 옐로우/골드 (Glitch Yellow) */
       --brand-yellow: #dcb045;
-      
-      /* 텍스트: 완전한 흰색보다는 살짝 크림톤 */
       --text-main: #f2f2ea;
-      
-      /* 서브 텍스트: 차분한 그레이 */
       --text-sub: #9ea099;
-      
-      /* 카드 배경 */
       --card-bg: #1f221c;
     }
 
@@ -50,7 +38,7 @@
       width: 100%;
       max-width: 1000px;
       margin: 0 auto;
-      padding: 80px 24px 0; /* Footer padding 분리를 위해 하단 패딩 0으로 조정 */
+      padding: 80px 24px 0;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -66,11 +54,6 @@
       max-width: 90vw;
       height: auto;
       display: block;
-      /* 이미지 없을 때 텍스트 대체 */
-      font-size: 3rem;
-      font-weight: 800;
-      letter-spacing: -2px;
-      color: var(--brand-yellow);
     }
 
     .role {
@@ -99,7 +82,7 @@
       color: rgba(220, 176, 69, 0.3);
     }
 
-    /* --- 2. SHOWREEL (VIDEO) --- */
+    /* --- 2. SHOWREEL --- */
     .video-wrap {
       width: 100%;
       max-width: 960px;
@@ -116,10 +99,10 @@
       border: none;
     }
 
-    /* --- 3. BRAND IDENTITY (PHILOSOPHY) --- */
+    /* --- 3. BRAND IDENTITY (Layout Updated) --- */
     .brand-section {
       width: 100%;
-      max-width: 800px;
+      max-width: 900px; /* 로고 병기를 위해 폭을 넓힘 */
       margin-bottom: 120px;
       text-align: left;
     }
@@ -130,17 +113,37 @@
       margin-bottom: 60px;
       text-align: center;
       letter-spacing: -0.02em;
-      /* 텍스트 그라데이션 */
       background: linear-gradient(to right, #fff, #888);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
+    /* Philosophy Block: Flex Layout */
+    .philosophy-wrap {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      margin-bottom: 80px; /* 컬러 섹션과의 간격 */
+    }
+
     .story-block {
-      margin-bottom: 60px;
+      flex: 1; /* 텍스트 영역 */
       padding-left: 24px;
-      /* 왼쪽 포인트 라인: 브랜드 옐로우 */
       border-left: 3px solid var(--brand-yellow);
+    }
+
+    /* 로고가 들어갈 우측 영역 */
+    .visual-block {
+      flex: 0.8; /* 이미지 영역 비율 */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .identity-logo-img {
+      width: 100%;
+      max-width: 300px; /* 너무 크지 않게 제한 */
+      opacity: 0.9;
+      filter: drop-shadow(0 0 10px rgba(220, 176, 69, 0.1));
     }
 
     .story-title {
@@ -167,6 +170,8 @@
       display: flex;
       gap: 40px;
       margin-top: 24px;
+      padding-left: 24px; /* 라인 맞춤 */
+      border-left: 3px solid transparent; /* 라인 자리 확보 */
     }
     .color-item {
       display: flex;
@@ -192,7 +197,7 @@
       color: var(--text-sub);
     }
 
-    /* --- 4. PORTFOLIO GRID (R&D) --- */
+    /* --- 4. PORTFOLIO GRID --- */
     .portfolio-header {
       font-size: 1.5rem;
       font-weight: 700;
@@ -225,7 +230,7 @@
     .card-img-placeholder {
       width: 100%;
       height: 240px;
-      background: #252822; /* 카드 내부도 딥 카키 */
+      background: #252822;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -233,11 +238,8 @@
       font-size: 0.8rem;
       font-weight: 600;
     }
-    /* 실제 이미지 사용시 style="background-image: url('...'); background-size: cover;" 로 변경 */
     
-    .card-info {
-      padding: 16px;
-    }
+    .card-info { padding: 16px; }
     .card-title {
       font-size: 0.95rem;
       font-weight: 700;
@@ -251,71 +253,103 @@
       text-transform: uppercase;
     }
 
-    /* --- 5. FOOTER (DESIGNED VER.) --- */
-    footer {
+    /* --- 5. FOOTER (Business Card Style) --- */
+    .card-footer {
       width: 100%;
+      background-color: #23261e;
+      color: #f2f2ea;
+      padding: 60px 24px 40px;
+      margin-top: 80px;
       border-top: 1px solid rgba(255,255,255,0.05);
-      padding: 80px 20px 60px;
-      text-align: center;
-      background-color: #121411;
-      margin-top: 60px; /* 본문과 간격 */
     }
-    
-    .contact-btn {
-      font-size: 1.25rem;
-      color: var(--brand-yellow);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(220, 176, 69, 0.4);
-      padding-bottom: 6px;
+    .footer-content {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 40px;
+    }
+    .footer-left { text-align: left; }
+    .f-name {
       font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-      transition: all 0.3s;
-      display: inline-block;
-      margin-bottom: 50px;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #dcb045;
+      margin-bottom: 4px;
     }
-    .contact-btn:hover {
-      color: #fff;
-      border-bottom-color: #fff;
-    }
-
-    .footer-brand {
+    .f-role {
       font-family: 'Montserrat', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 800;
-      color: #fff;
-      margin-bottom: 16px;
-      letter-spacing: 0.1em;
+      font-size: 1.0rem;
+      color: #f2f2ea;
+      margin-bottom: 24px;
+      font-weight: 500;
+      opacity: 0.9;
     }
-
-    .footer-details {
-      font-family: 'Noto Sans KR', sans-serif;
+    .f-contact-info p {
+      margin: 6px 0;
       font-size: 0.9rem;
-      color: #888;
-      line-height: 1.8;
-      font-weight: 300;
-      margin-bottom: 50px;
+      color: #ccc;
     }
-
-    .copyright {
-      font-size: 0.75rem;
-      color: #444;
+    .f-contact-info a {
+      color: #ccc; text-decoration: none; transition: color 0.3s;
+    }
+    .f-contact-info a:hover { color: #dcb045; }
+    .label {
+      font-weight: 700; color: #dcb045; margin-right: 8px; display: inline-block; width: 15px;
+    }
+    .biz-info {
+      margin-top: 16px !important;
+      font-size: 0.8rem !important;
+      color: #777 !important;
+      line-height: 1.5;
+    }
+    .footer-right {
+      text-align: right;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+    .footer-logo-img { width: 160px; height: auto; margin-bottom: 8px; }
+    .footer-slogan {
       font-family: 'Montserrat', sans-serif;
-      letter-spacing: 0.05em;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      color: #dcb045;
+      text-transform: uppercase;
+      font-weight: 600;
     }
+    .footer-bottom-line {
+      max-width: 1000px;
+      margin: 0 auto;
+      border-top: 2px solid #dcb045;
+      padding-top: 24px;
+      text-align: center;
+    }
+    .f-services {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.0rem;
+      font-weight: 700;
+      color: #dcb045;
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+    }
+    .sep { color: rgba(255,255,255,0.2); margin: 0 10px; font-weight: 300; }
+    .copyright { font-size: 0.75rem; color: #555; font-family: 'Montserrat', sans-serif; }
 
-    /* Animation */
+    /* Animation & Mobile */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
-    /* Mobile Responsive */
     @media (max-width: 768px) {
-      .logo img { width: 320px; }
-      .services { font-size: 0.8rem; gap: 8px; }
-      .color-grid { flex-direction: column; gap: 20px; }
-      .story-block { padding-left: 16px; }
-      .footer-details { font-size: 0.85rem; }
+      .philosophy-wrap { flex-direction: column-reverse; gap: 20px; text-align: center; } /* 모바일에서 로고 위, 텍스트 아래 */
+      .story-block { padding-left: 0; border-left: none; border-top: 3px solid var(--brand-yellow); padding-top: 20px;}
+      .color-grid { padding-left: 0; flex-direction: column; gap: 20px; }
+      .footer-content { flex-direction: column-reverse; align-items: center; text-align: center; gap: 30px; }
+      .footer-left { text-align: center; }
+      .footer-right { align-items: center; }
+      .f-services { font-size: 0.85rem; }
     }
   </style>
 </head>
@@ -348,19 +382,28 @@
     <section class="brand-section">
       <div class="identity-header">EVOLVING VISION</div>
 
-      <div class="story-block">
-        <h2 class="story-title">Design Philosophy</h2>
-        <p class="story-desc">
-          <strong>"The Digital Glitch"</strong><br>
-          NOID의 심볼은 고정된 관념의 <strong>'해체와 재구축(Deconstruction)'</strong>을 상징합니다.<br>
-          왼쪽으로 흩어지는 픽셀(Pixel)은 아날로그의 한계를 넘어,<br>
-          <strong>AI라는 무한한 가능성의 영역</strong>으로 확장되는 과정을 시각화했습니다.
-        </p>
+      <div class="philosophy-wrap">
+        
+        <div class="story-block">
+          <h2 class="story-title">Design Philosophy</h2>
+          <p class="story-desc">
+            <strong>"The Digital Glitch"</strong><br>
+            NOID의 심볼은 고정된 관념의 <strong>'해체와 재구축'</strong>을 상징합니다.<br>
+            <br>
+            왼쪽으로 흩어지는 픽셀(Pixel)은 아날로그의 한계를 넘어,
+            <strong>AI라는 무한한 가능성의 영역</strong>으로 확장되는 과정을 시각화했습니다.
+          </p>
+        </div>
+
+        <div class="visual-block">
+          <img src="noid-logo.svg" alt="NOID Glitch Logo" class="identity-logo-img">
+        </div>
+
       </div>
 
-      <div class="story-block">
-        <h2 class="story-title">Color Definition</h2>
-        <p class="story-desc" style="margin-bottom: 24px;">
+      <div class="story-block" style="border:none; padding-left:0;">
+        <h2 class="story-title" style="margin-left:24px;">Color Definition</h2>
+        <p class="story-desc" style="margin-bottom: 24px; margin-left:24px;">
           NOID의 컬러는 <strong>'현실(Analog)'</strong>과 <strong>'가상(Digital)'</strong>의 충돌과 융합을 상징합니다.
         </p>
         
@@ -387,60 +430,69 @@
     <div class="portfolio-header">SELECTED WORKS & R&D</div>
     <div class="grid">
       <div class="card">
-        <div class="card-img-placeholder">
-          AI CONCEPT ART
-        </div>
+        <div class="card-img-placeholder">COMMERCIAL VIDEO</div>
         <div class="card-info">
-          <h3 class="card-title">Future City Vision</h3>
-          <span class="card-tag">Generative AI</span>
+          <h3 class="card-title">Commercial & Brand</h3>
+          <span class="card-tag">VIDEO PRODUCTION</span>
         </div>
       </div>
-
       <div class="card">
-        <div class="card-img-placeholder">
-          BRAND FILM
-        </div>
+        <div class="card-img-placeholder">EDITORIAL PHOTO</div>
         <div class="card-info">
-          <h3 class="card-title">Commercial Film</h3>
-          <span class="card-tag">Director's Cut</span>
+          <h3 class="card-title">Photography</h3>
+          <span class="card-tag">STILL & PROFILE</span>
         </div>
       </div>
-
       <div class="card">
-        <div class="card-img-placeholder">
-          SPACE TOUR
-        </div>
+        <div class="card-img-placeholder">AERIAL VIEW</div>
         <div class="card-info">
-          <h3 class="card-title">Space & Architecture</h3>
-          <span class="card-tag">Drone / Interior</span>
+          <h3 class="card-title">Drone & Space</h3>
+          <span class="card-tag">AERIAL CINEMATOGRAPHY</span>
         </div>
       </div>
-
       <div class="card">
-        <div class="card-img-placeholder">
-          STYLE TRANSFER
-        </div>
+        <div class="card-img-placeholder">AI GENERATIVE ART</div>
         <div class="card-info">
-          <h3 class="card-title">AI Video R&D</h3>
-          <span class="card-tag">Tech Demo</span>
+          <h3 class="card-title">AI Creative Lab</h3>
+          <span class="card-tag">AI PRODUCTION</span>
         </div>
       </div>
     </div>
 
-  </div> <footer>
-    <div>
-      <a href="mailto:contact@noid-ai-studio.com" class="contact-btn">contact@noid-ai-studio.com</a>
-    </div>
+  </div> <footer class="card-footer">
+    <div class="footer-content">
+      
+      <div class="footer-left">
+        <div class="f-name">Youngjin Seo</div>
+        <div class="f-role">Creative Director · AI Production</div>
+        
+        <div class="f-contact-info">
+          <p><span class="label">M</span> +82.10.9507.2639</p>
+          <p><span class="label">E</span> <a href="mailto:contact@noid-ai-studio.com">contact@noid-ai-studio.com</a></p>
+          <p class="biz-info">
+            License: 241-40-01310 <br>
+            Address: 경기도 광명시 광명동 297-50
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-right">
+        <img src="noid-logo.svg" alt="NOID LOGO" class="footer-logo-img">
+        <div class="footer-slogan">EVOLVING VISION</div>
+      </div>
     
-    <div class="footer-brand">NOID</div>
-    <div class="footer-details">
-      Creative Director : Seo Young Jin<br>
-      Business License : 241-40-01310<br>
-      Address : 경기도 광명시 광명동 297-50
     </div>
 
-    <div class="copyright">
-      © 2026 NOID AI STUDIO. All Rights Reserved.
+    <div class="footer-bottom-line">
+      <div class="f-services">
+        VIDEO <span class="sep">|</span> 
+        PHOTO <span class="sep">|</span> 
+        DRONE <span class="sep">|</span> 
+        AI PRODUCTION
+      </div>
+      <div class="copyright">
+        © 2026 NOID AI STUDIO. All Rights Reserved.
+      </div>
     </div>
   </footer>
 
