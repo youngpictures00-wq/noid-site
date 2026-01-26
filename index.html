@@ -2,9 +2,17 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>NOID | Visual Brand Director</title>
+  
+  <title>NOID | EVOLVING VISION</title>
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="AI 기반 고퀄리티 커머셜 영상 제작 스튜디오 NOID" />
+  <meta name="description" content="Visual Brand Director · AI 기반 고퀄리티 커머셜 영상 제작 스튜디오 NOID" />
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://noid.cloud/">
+  <meta property="og:title" content="NOID | EVOLVING VISION">
+  <meta property="og:description" content="Visual Brand Director · AI 기반 고퀄리티 커머셜 영상 제작">
+  <meta property="og:image" content="https://noid.cloud/thumb_commercial.jpg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +23,7 @@
       /* [NOID Brand Colors] */
       --bg-dark: #161814;      /* Deep Dark Khaki (Almost Black) */
       --bg-gradient: #282b22;  /* Dark Olive Khaki */
-      --brand-yellow: #dcb045; /* NOID Yellow (Not Gold) */
+      --brand-yellow: #dcb045; /* NOID Yellow */
       --text-main: #f2f2ea;    /* NOID White (Mist) */
       --text-sub: #9ea099;     /* Grey */
       --card-bg: #1f221c;      /* Card Background */
@@ -34,6 +42,7 @@
       word-break: keep-all;
       overflow-x: hidden;
       position: relative;
+      /* 헤더 높이(140px)만큼 상단 여백 확보 */
       padding-top: 140px; 
     }
 
@@ -46,31 +55,31 @@
     }
 
 
-    /* --- [1. HEADER: 압도적인 텍스트 사이즈] --- */
+    /* --- [1. HEADER: 호기스터 스타일 (중앙 정렬 + 거대한 텍스트)] --- */
     header {
         position: fixed; top: 0; left: 0; width: 100%; 
         height: 140px; 
         display: flex; 
-        justify-content: center; 
+        justify-content: center; /* 중앙 정렬 */
         align-items: center; 
         padding: 0 40px;
         z-index: 1000;
-        background-color: #000; 
+        background-color: #000; /* 솔리드 블랙 배경 */
         border-bottom: 1px solid rgba(255,255,255,0.15);
     }
 
     .header-branding {
         display: flex;
-        align-items: center; 
-        gap: 30px; 
+        align-items: center; /* 수직 중앙 정렬 */
+        gap: 30px; /* NOID와 슬로건 사이 간격 */
     }
 
     .header-main-txt {
         font-family: 'Montserrat', sans-serif;
         font-weight: 900; 
-        font-size: 6.5rem; 
+        font-size: 6.5rem; /* 압도적인 크기 */
         color: #fff; 
-        letter-spacing: -4px; 
+        letter-spacing: -4px; /* 자간 좁힘 (Solid) */
         line-height: 1;
         text-transform: uppercase;
     }
@@ -79,11 +88,11 @@
     .header-slogan-txt {
         font-family: 'Montserrat', sans-serif;
         font-weight: 700;
-        font-size: 2.4rem; 
+        font-size: 2.4rem; /* 슬로건 확대 */
         color: var(--text-sub); 
         letter-spacing: 2px;
         text-transform: uppercase;
-        border-left: 4px solid var(--brand-yellow); 
+        border-left: 4px solid var(--brand-yellow); /* 노란색 구분선 */
         padding-left: 30px;
         line-height: 1;
         margin-top: 10px; 
@@ -93,6 +102,7 @@
     /* --- [2. HERO VIDEO] --- */
     .hero-video-wrap {
         width: 100%;
+        /* 헤더 높이(140px)를 뺀 나머지 화면 꽉 채움 */
         height: calc(100vh - 140px); 
         overflow: hidden; 
         position: relative;
@@ -121,7 +131,7 @@
       display: flex; flex-direction: column; align-items: center; position: relative;
     }
 
-    /* --- [본문 상단 로고] --- */
+    /* --- [본문 상단 로고 (확대됨)] --- */
     .body-logo-wrap {
         width: 100%;
         text-align: center;
@@ -129,7 +139,7 @@
         animation: fadeIn 1.5s ease-out;
     }
     .body-logo-img {
-        width: 800px; 
+        width: 800px; /* 로고 크기 대폭 확대 */
         max-width: 90vw; height: auto;
         filter: drop-shadow(0 0 20px rgba(0,0,0,0.4));
     }
@@ -155,6 +165,7 @@
     .def-title { color: var(--brand-yellow); font-weight: 700; font-size: 1.1rem; margin-bottom: 4px; font-family: 'Montserrat', sans-serif; }
     .def-desc { color: #ccc; font-size: 0.95rem; line-height: 1.6; }
 
+    /* 메인 카피 */
     .main-desc {
       font-size: 1.5rem; font-weight: 500; line-height: 1.8; color: #fff;
       margin-bottom: 50px; font-family: 'Noto Sans KR', sans-serif;
@@ -162,6 +173,7 @@
     }
     .main-desc strong { font-weight: 700; color: var(--brand-yellow); }
     
+    /* 브랜드 스토리 (20년 헤리티지) */
     .sub-desc { 
         font-size: 1.1rem; color: var(--text-sub); font-weight: 300; 
         line-height: 2.0; 
@@ -171,7 +183,7 @@
     .highlight-yellow { color: var(--brand-yellow); font-weight: 700; }
 
 
-    /* --- [BRAND COLORS SECTION (Corrected: Khaki, Yellow, White)] --- */
+    /* --- [BRAND COLORS SECTION: KHAKI, YELLOW, WHITE] --- */
     .color-section { width: 100%; margin-bottom: 140px; text-align: center; }
     .color-grid { display: flex; justify-content: center; gap: 50px; flex-wrap: wrap; margin-top: 50px; }
     .color-card { text-align: center; width: 160px; }
@@ -250,12 +262,15 @@
 
     @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* 반응형 */
+    /* 반응형: 모바일 */
     @media (max-width: 768px) {
       header { height: 100px; padding: 0 10px; }
       .header-branding { flex-direction: column; gap: 5px; }
+      
+      /* 모바일에서는 폰트 크기 조정 */
       .header-main-txt { font-size: 3.5rem; }
       .header-slogan-txt { border-left: none; padding-left: 0; font-size: 1.2rem; letter-spacing: 1px; margin-top: 0; }
+      
       .hero-video-wrap { height: calc(100vh - 100px); } 
       .main-desc { font-size: 1.2rem; }
       .ai-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; }
@@ -359,7 +374,6 @@
             </div>
         </div>
       </div>
-
     </section>
 
     <section class="showreel-section">
