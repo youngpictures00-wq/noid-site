@@ -34,7 +34,8 @@
       word-break: keep-all;
       overflow-x: hidden;
       position: relative;
-      padding-top: 100px; /* 헤더 높이만큼 상단 여백 확보 (헤더가 커져서 100px로 조정) */
+      /* 헤더가 커진 만큼 상단 여백도 140px로 확보 */
+      padding-top: 140px; 
     }
 
     /* --- [VINTAGE TEXTURE OVERLAY] --- */
@@ -46,30 +47,32 @@
     }
 
 
-    /* --- [1. HEADER: 중앙 정렬 & 거대한 텍스트] --- */
+    /* --- [1. HEADER: 압도적인 텍스트 사이즈 적용] --- */
     header {
-        position: fixed; top: 0; left: 0; width: 100%; height: 100px; /* 로고가 커져서 높이 약간 키움 */
+        position: fixed; top: 0; left: 0; width: 100%; 
+        height: 140px; /* 로고 크기에 맞춰 높이 확대 */
         display: flex; 
-        justify-content: center; /* [핵심] 중앙 정렬 */
+        justify-content: center; /* 중앙 정렬 */
         align-items: center; 
         padding: 0 40px;
         z-index: 1000;
-        background-color: #000; /* 솔리드 블랙 배경 */
-        border-bottom: 1px solid rgba(255,255,255,0.1);
+        background-color: #000; /* 솔리드 블랙 */
+        border-bottom: 1px solid rgba(255,255,255,0.15);
     }
 
     .header-branding {
         display: flex;
-        align-items: center; /* 텍스트 높이 중앙 맞춤 */
-        gap: 20px; /* NOID와 슬로건 사이 간격 */
+        align-items: center; /* 수직 중앙 정렬 */
+        gap: 30px; /* NOID와 슬로건 사이 간격 시원하게 */
     }
 
     .header-main-txt {
         font-family: 'Montserrat', sans-serif;
         font-weight: 900; 
-        font-size: 3rem; /* [핵심] 폰트 사이즈 대폭 확대 (호기스터 스타일) */
+        /* [핵심 수정] 폰트 사이즈 대폭 확대 (6.5rem) */
+        font-size: 6.5rem; 
         color: #fff; 
-        letter-spacing: -2px; /* 자간 좁혀서 임팩트 있게 */
+        letter-spacing: -4px; /* 자간을 좁혀서 꽉 찬 느낌 (Solid) */
         line-height: 1;
         text-transform: uppercase;
     }
@@ -78,21 +81,21 @@
     .header-slogan-txt {
         font-family: 'Montserrat', sans-serif;
         font-weight: 700;
-        font-size: 1rem; /* 슬로건도 비율에 맞춰 조정 */
+        font-size: 1.2rem; /* 슬로건도 비율 맞춰서 키움 */
         color: var(--text-sub); 
-        letter-spacing: 2px; /* 자간 넓게 */
+        letter-spacing: 3px; /* 슬로건은 자간을 넓혀서 세련되게 */
         text-transform: uppercase;
-        border-left: 2px solid #333; /* 구분선 추가 */
-        padding-left: 20px;
-        line-height: 1.2;
+        border-left: 3px solid var(--brand-yellow); /* 노란색 구분선 강조 */
+        padding-left: 30px;
+        line-height: 1.1;
     }
 
 
     /* --- [2. HERO VIDEO] --- */
     .hero-video-wrap {
         width: 100%;
-        /* 헤더 높이(100px)를 뺀 나머지 화면 꽉 채움 */
-        height: calc(100vh - 100px); 
+        /* 헤더 높이(140px)를 뺀 나머지 화면 꽉 채움 */
+        height: calc(100vh - 140px); 
         overflow: hidden; 
         position: relative;
         border-bottom: 1px solid rgba(220, 176, 69, 0.3);
@@ -109,14 +112,14 @@
         min-height: 100vh; min-width: 177.77vh;
         transform: translate(-50%, -50%);
         object-fit: cover;
-        opacity: 0.8;
+        opacity: 0.85; /* 영상 존재감 업 */
     }
 
     
     /* --- [COMMON CONTAINER] --- */
     .container {
       width: 100%; max-width: 1100px; margin: 0 auto;
-      padding: 80px 24px 0;
+      padding: 100px 24px 0;
       display: flex; flex-direction: column; align-items: center; position: relative;
     }
 
@@ -124,11 +127,11 @@
     .body-logo-wrap {
         width: 100%;
         text-align: center;
-        margin-bottom: 50px; 
+        margin-bottom: 60px; 
         animation: fadeIn 1.5s ease-out;
     }
     .body-logo-img {
-        width: 380px; /* 로고 크기 */
+        width: 380px; 
         max-width: 80vw; height: auto;
         filter: drop-shadow(0 0 20px rgba(0,0,0,0.4));
     }
@@ -227,14 +230,17 @@
 
     @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
+    /* 반응형: 모바일에서는 텍스트가 너무 크면 잘리므로 조정 */
     @media (max-width: 768px) {
-      header { padding: 0 20px; }
-      .header-branding { flex-direction: column; gap: 5px; align-items: center; }
-      .header-slogan-txt { border-left: none; padding-left: 0; }
+      header { height: 100px; padding: 0 10px; }
+      .header-branding { flex-direction: column; gap: 5px; }
+      .header-main-txt { font-size: 3.5rem; }
+      .header-slogan-txt { border-left: none; padding-left: 0; font-size: 0.9rem; letter-spacing: 1px; }
       .hero-video-wrap { height: calc(100vh - 100px); } 
       .main-desc { font-size: 1.2rem; }
       .ai-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; }
       .body-logo-img { width: 300px; }
+      padding-top: 100px;
     }
   </style>
 </head>
