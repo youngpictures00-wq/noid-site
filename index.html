@@ -36,7 +36,7 @@
       position: relative;
     }
 
-    /* --- [VINTAGE TEXTURE OVERLAY] (배경 질감 유지) --- */
+    /* --- [VINTAGE TEXTURE OVERLAY] --- */
     body::before {
         content: "";
         position: fixed;
@@ -56,26 +56,41 @@
         background: radial-gradient(circle at 50% 50%, transparent 0%, rgba(0,0,0,0.4) 100%);
     }
 
-    /* --- [수정됨] 1. HERO VIDEO SECTION (컬러 영상) --- */
+    /* --- [ANAMORPHIC HERO VIDEO] (시네마틱 와이드 적용) --- */
     .hero-video-wrap {
         width: 100%;
-        height: 80vh; /* 화면 높이의 80% 차지 */
+        height: 85vh; /* 영화관 스크린 느낌을 위해 높이 확보 */
         min-height: 500px;
-        overflow: hidden;
+        overflow: hidden; /* 확대된 영상의 테두리를 잘라냄 */
         position: relative;
-        border-bottom: 1px solid rgba(220, 176, 69, 0.3); /* 하단 노란색 라인 */
+        border-bottom: 1px solid rgba(220, 176, 69, 0.3);
     }
-    .hero-video-wrap iframe {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* 영상이 영역을 꽉 채우도록 설정 */
-        /* 흑백 필터 제거됨 -> 컬러로 출력 */
+    
+    .video-foreground {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        pointer-events: none; /* 영상 클릭 방지 (배경 목적) */
     }
 
-    /* --- [수정됨] 2. HERO LOGO SECTION (영상 아래 배치) --- */
+    .video-foreground iframe {
+        position: absolute;
+        top: 50%; left: 50%;
+        width: 100vw; 
+        height: 56.25vw; /* 16:9 비율 강제 (가로 기준) */
+        min-height: 100vh; 
+        min-width: 177.77vh; /* 16:9 비율 강제 (세로 기준) */
+        
+        /* [핵심 기술] 아나몰픽 줌 (Anamorphic Zoom) */
+        /* 영상을 1.35배 확대하여 레터박스/블랙바를 화면 밖으로 밀어냄 */
+        transform: translate(-50%, -50%) scale(1.35); 
+        
+        object-fit: cover;
+    }
+
+    /* --- HERO LOGO SECTION --- */
     .hero-logo-wrap {
         width: 100%;
-        padding: 80px 24px 40px; /* 상하 여백 */
+        padding: 80px 24px 40px;
         text-align: center;
         position: relative;
         z-index: 2;
@@ -85,13 +100,12 @@
     .hero-logo img {
         width: 600px;
         max-width: 90vw;
-        /* 로고 자체의 그림자 효과는 유지 */
         filter: drop-shadow(0 0 30px rgba(0,0,0,0.5));
     }
 
     .hero-slogan {
         font-size: 1.3rem;
-        color: var(--brand-yellow); /* 슬로건 색상을 브랜드 컬러로 변경하여 강조 */
+        color: var(--brand-yellow);
         letter-spacing: 0.3em;
         margin-top: 25px;
         font-weight: 600;
@@ -211,7 +225,7 @@
 
     @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     @media (max-width: 768px) {
-      .hero-video-wrap { height: 60vh; } /* 모바일에서는 영상 높이 조절 */
+      .hero-video-wrap { height: 60vh; } 
       .hero-logo-wrap { padding: 60px 24px 30px; }
       .hero-logo img { width: 80vw; }
       .hero-slogan { font-size: 1.1rem; }
@@ -224,13 +238,15 @@
 <body>
 
   <div class="hero-video-wrap">
-      <iframe 
-          src="https://www.youtube.com/embed/cwQlH5tPD1A?autoplay=1&mute=1&controls=0&loop=1&playlist=cwQlH5tPD1A&playsinline=1" 
-          title="NOID Hero Video" 
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-          allowfullscreen>
-      </iframe>
+      <div class="video-foreground">
+        <iframe 
+            src="https://www.youtube.com/embed/cwQlH5tPD1A?autoplay=1&mute=1&controls=0&loop=1&playlist=cwQlH5tPD1A&playsinline=1" 
+            title="NOID Hero Video" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+        </iframe>
+      </div>
   </div>
   
   <div class="hero-logo-wrap">
