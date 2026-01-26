@@ -36,20 +36,17 @@
       position: relative;
     }
 
-    /* --- [VINTAGE TEXTURE OVERLAY] (은은한 노이즈 질감 복구) --- */
+    /* --- [VINTAGE TEXTURE OVERLAY] --- */
     body::before {
         content: "";
         position: fixed;
         top: 0; left: 0; width: 100%; height: 100%;
         pointer-events: none;
         z-index: -1; 
-        /* 노이즈 패턴 */
         background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E");
         opacity: 0.15; 
         mix-blend-mode: soft-light;
     }
-
-    /* 비네팅 (화면 가장자리 부드럽게 어둡게) */
     body::after {
         content: "";
         position: fixed;
@@ -59,62 +56,81 @@
         background: radial-gradient(circle at 50% 50%, transparent 0%, rgba(0,0,0,0.4) 100%);
     }
 
+    /* --- [NEW] HERO VIDEO SECTION --- */
+    .hero-container {
+        position: relative;
+        width: 100%;
+        height: 80vh; /* 화면 높이의 80%를 영상으로 채움 */
+        min-height: 500px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 80px;
+        border-bottom: 1px solid rgba(220, 176, 69, 0.2);
+    }
+
+    /* 배경 영상 (유튜브 iframe 확대) */
+    .hero-video-bg {
+        position: absolute;
+        top: 50%; left: 50%;
+        width: 100vw; 
+        height: 100vh; /* 넉넉하게 잡아서 레터박스 제거 */
+        transform: translate(-50%, -50%);
+        z-index: 1;
+        pointer-events: none; /* 클릭 방지 (배경처럼 쓰기 위해) */
+        opacity: 0.6; /* 영상 밝기 조절 (텍스트 잘 보이게) */
+        mix-blend-mode: luminosity; /* 흑백/빈티지 느낌 추가 (선택사항) */
+    }
+    .hero-video-bg iframe {
+        width: 100%; height: 100%;
+        object-fit: cover;
+    }
+
+    /* 영상 위에 뜨는 로고 & 텍스트 */
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        animation: fadeIn 1.5s ease-out;
+    }
+    
+    .hero-logo img {
+        width: 600px;
+        max-width: 90vw;
+        filter: drop-shadow(0 0 30px rgba(0,0,0,0.8)); /* 가독성을 위한 그림자 */
+    }
+
+    .hero-slogan {
+        font-size: 1.2rem;
+        color: rgba(255,255,255,0.9);
+        letter-spacing: 0.2em;
+        margin-top: 20px;
+        font-weight: 300;
+        text-shadow: 0 2px 10px rgba(0,0,0,1);
+    }
+
+    /* --- COMMON CONTAINER --- */
     .container {
       width: 100%;
       max-width: 1100px;
       margin: 0 auto;
-      padding: 100px 24px 0;
+      padding: 0 24px;
       display: flex;
       flex-direction: column;
       align-items: center;
       position: relative;
     }
 
-    /* --- 1. HERO (LOGO ONLY) --- */
-    .logo {
-      margin-bottom: 60px;
-      animation: fadeIn 1.2s ease-out;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      position: relative; z-index: 2;
-    }
-    .logo img {
-      width: 680px;
-      max-width: 95vw;
-      height: auto;
-      display: block;
-      filter: drop-shadow(0 0 25px rgba(220, 176, 69, 0.15));
-    }
-
-    /* --- 2. BRAND STORY (CENTERED) --- */
+    /* --- BRAND STORY --- */
     .brand-section {
       width: 100%;
       max-width: 800px;
       margin-bottom: 100px;
       text-align: center;
-      animation: fadeIn 1.5s ease-out;
       position: relative;
       padding: 60px 0;
     }
-
-    .brand-section::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 50%;
-      transform: translateX(-50%);
-      width: 120%;
-      height: 100%;
-      background-image: 
-        linear-gradient(to right, rgba(220, 176, 69, 0.03) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(220, 176, 69, 0.03) 1px, transparent 1px);
-      background-size: 40px 40px;
-      opacity: 0.5;
-      z-index: -1;
-      mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
-      -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
-    }
-    
     .section-header {
       font-size: 1.6rem;
       font-weight: 700;
@@ -126,33 +142,20 @@
       text-align: center;
     }
 
-    /* A. ORIGIN & PHILOSOPHY */
-    .text-block {
-      margin-bottom: 80px;
-      position: relative; z-index: 2;
-    }
-    
+    .text-block { margin-bottom: 80px; position: relative; z-index: 2; }
     .block-title {
-      font-size: 0.9rem;
-      letter-spacing: 0.3em;
-      color: var(--brand-yellow);
-      margin-bottom: 20px;
-      font-weight: 700;
-      text-transform: uppercase;
-      display: inline-block;
-      position: relative;
+      font-size: 0.9rem; letter-spacing: 0.3em; color: var(--brand-yellow);
+      margin-bottom: 20px; font-weight: 700; text-transform: uppercase;
+      display: inline-block; position: relative;
     }
     .block-title::after {
-      content: ''; display: block; width: 4px; height: 4px; background: var(--brand-yellow); margin: 10px auto 0; border-radius: 50%;
+      content: ''; display: block; width: 4px; height: 4px; 
+      background: var(--brand-yellow); margin: 10px auto 0; border-radius: 50%;
     }
 
     .definition-box {
-      margin-bottom: 60px;
-      text-align: left;
-      background: rgba(255, 255, 255, 0.03);
-      padding: 30px;
-      border-radius: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      margin-bottom: 60px; text-align: left; background: rgba(255, 255, 255, 0.03);
+      padding: 30px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.05);
     }
     .def-item { margin-bottom: 24px; }
     .def-item:last-child { margin-bottom: 0; }
@@ -160,270 +163,97 @@
     .def-desc { color: #ccc; font-size: 0.95rem; line-height: 1.6; }
 
     .main-desc {
-      font-size: 1.5rem; 
-      font-weight: 500;
-      line-height: 1.6;
-      color: #fff;
-      margin-bottom: 40px;
-      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 1.5rem; font-weight: 500; line-height: 1.6; color: #fff;
+      margin-bottom: 40px; font-family: 'Noto Sans KR', sans-serif;
     }
     .main-desc strong { font-weight: 700; color: var(--brand-yellow); }
-
-    .sub-desc {
-      font-size: 1.05rem;
-      color: var(--text-sub);
-      font-weight: 300;
-      line-height: 1.8;
-      max-width: 680px;
-      margin: 0 auto;
-    }
+    .sub-desc { font-size: 1.05rem; color: var(--text-sub); font-weight: 300; line-height: 1.8; max-width: 680px; margin: 0 auto; }
     .highlight { color: #fff; font-weight: 500; }
 
-    /* B. COLOR SYSTEM */
-    .color-section {
-      margin-top: 80px;
-      padding-top: 80px;
-      border-top: 1px solid rgba(255,255,255,0.05);
-      position: relative; z-index: 2;
-    }
-    .color-grid {
-      display: flex;
-      justify-content: center;
-      gap: 60px;
-      margin-top: 40px;
-    }
-    .color-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 16px;
-    }
-    .color-swatch {
-      width: 60px; height: 60px; border-radius: 50%; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); transition: transform 0.3s;
-    }
-    .color-swatch:hover { transform: scale(1.1); }
-    
-    .color-info h4 { margin: 0 0 6px 0; font-size: 1rem; color: #fff; font-weight: 700; letter-spacing: 0.05em; }
-    .color-info p { margin: 0; font-size: 0.8rem; color: var(--text-sub); }
-
-
-    /* --- AI WORKFLOW SECTION --- */
-    .ai-section {
-      width: 100%;
-      margin-bottom: 140px;
-      position: relative; z-index: 2;
-    }
-    .ai-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 30px;
-        width: 100%;
-    }
+    /* --- AI WORKFLOW --- */
+    .ai-section { width: 100%; margin-bottom: 140px; position: relative; z-index: 2; }
+    .ai-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; width: 100%; }
     .ai-tool-card {
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 8px;
-        padding: 30px 20px;
-        text-align: center;
-        transition: all 0.3s ease;
+        background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 8px; padding: 30px 20px; text-align: center; transition: all 0.3s ease;
     }
     .ai-tool-card:hover {
-        border-color: var(--brand-yellow);
-        box-shadow: 0 10px 30px rgba(220, 176, 69, 0.1);
-        transform: translateY(-5px);
+        border-color: var(--brand-yellow); box-shadow: 0 10px 30px rgba(220, 176, 69, 0.1); transform: translateY(-5px);
     }
-    
-    /* AI 로고 이미지 스타일 */
-    .ai-logo-img {
-        width: 60px; 
-        height: 60px;
-        object-fit: contain;
-        margin: 0 auto 20px;
-        display: block;
-    }
-
-    .ai-tool-name {
-        font-family: 'Montserrat', sans-serif;
-        font-size: 1.1rem; font-weight: 700; color: #fff;
-        margin-bottom: 15px;
-    }
-    .ai-tool-desc {
-        font-size: 0.9rem; color: var(--text-sub); line-height: 1.6;
-        word-break: keep-all;
-    }
+    .ai-logo-img { width: 60px; height: 60px; object-fit: contain; margin: 0 auto 20px; display: block; }
+    .ai-tool-name { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 15px; }
+    .ai-tool-desc { font-size: 0.9rem; color: var(--text-sub); line-height: 1.6; word-break: keep-all; }
     .ai-tool-desc b { color: #fff; font-weight: 500; }
 
-
-    /* --- 3. SHOWREEL --- */
-    .video-wrap {
-      width: 100%;
-      max-width: 960px;
-      aspect-ratio: 16 / 9;
-      border-radius: 4px;
-      overflow: hidden;
-      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      margin-bottom: 140px;
-      position: relative; z-index: 2;
-    }
-    .video-wrap iframe { width: 100%; height: 100%; border: none; }
-
-    /* --- 4. SELECTED WORKS (4-COLUMN GRID) --- */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 24px;
-      width: 100%;
-      margin-bottom: 100px;
-    }
-
+    /* --- SELECTED WORKS --- */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; width: 100%; margin-bottom: 100px; }
     .card {
-      background: var(--card-bg);
-      border-radius: 4px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.05);
-      transition: transform 0.3s ease, border-color 0.3s ease;
-      cursor: pointer;
-      display: block; /* a태그 블록화 */
-      text-decoration: none;
+      background: var(--card-bg); border-radius: 4px; overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.05); transition: transform 0.3s ease, border-color 0.3s ease;
+      cursor: pointer; display: block; text-decoration: none;
     }
     .card:hover { transform: translateY(-8px); border-color: var(--brand-yellow); }
-
-    /* [이미지 썸네일 스타일] */
-    .card-img-wrap {
-        width: 100%;
-        height: 260px; 
-        overflow: hidden;
-        background-color: #000;
-    }
-    
-    .card-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; 
-        transition: transform 0.5s ease;
-        display: block;
-    }
-
-    .card:hover .card-img {
-        transform: scale(1.1);
-    }
-
+    .card-img-wrap { width: 100%; height: 260px; overflow: hidden; background-color: #000; }
+    .card-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; display: block; }
+    .card:hover .card-img { transform: scale(1.1); }
     .card-info { padding: 20px; text-align: left; }
     .card-title { font-size: 1rem; font-weight: 700; color: #fff; margin: 0 0 8px 0; }
     .card-tag { font-size: 0.75rem; color: var(--brand-yellow); letter-spacing: 0.05em; text-transform: uppercase; }
 
-    /* --- 5. FOOTER (CENTER ALIGNED) --- */
+    /* --- FOOTER --- */
     .card-footer {
-      width: 100%;
-      background-color: #1a1d17;
-      color: #f2f2ea;
-      padding: 80px 24px 50px;
-      margin-top: 80px;
-      border-top: 1px solid rgba(255,255,255,0.05);
-      text-align: center;
-      position: relative; z-index: 2;
+      width: 100%; background-color: #1a1d17; color: #f2f2ea;
+      padding: 80px 24px 50px; margin-top: 80px; border-top: 1px solid rgba(255,255,255,0.05); text-align: center;
     }
-    .footer-content {
-      max-width: 1000px;
-      margin: 0 auto;
-      display: block; 
-      text-align: center;
-      margin-bottom: 50px;
-    }
-    .footer-left, .footer-right { text-align: center; width: 100%; }
-
-    .f-name {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2rem;
-      font-weight: 700;
-      color: #dcb045;
-      margin-bottom: 6px;
-    }
-    .f-role {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.0rem;
-      color: #fff;
-      margin-bottom: 30px;
-      font-weight: 400;
-      opacity: 0.8;
-    }
-    .f-contact-info p {
-      margin: 8px 0;
-      font-size: 0.95rem;
-      color: #bbb;
-      display: flex; justify-content: center; align-items: center;
-    }
+    .footer-content { max-width: 1000px; margin: 0 auto; display: block; text-align: center; margin-bottom: 50px; }
+    .f-name { font-family: 'Montserrat', sans-serif; font-size: 2rem; font-weight: 700; color: #dcb045; margin-bottom: 6px; }
+    .f-role { font-family: 'Montserrat', sans-serif; font-size: 1.0rem; color: #fff; margin-bottom: 30px; font-weight: 400; opacity: 0.8; }
+    .f-contact-info p { margin: 8px 0; font-size: 0.95rem; color: #bbb; display: flex; justify-content: center; align-items: center; }
     .f-contact-info a { color: #bbb; text-decoration: none; transition: color 0.3s; }
     .f-contact-info a:hover { color: #dcb045; }
     .label { font-weight: 700; color: #dcb045; margin-right: 10px; display: inline-block; width: 15px; text-align: right;}
-    
-    .biz-info {
-      margin-top: 24px !important;
-      font-size: 0.85rem !important;
-      color: #666 !important;
-      line-height: 1.6;
-      display: block !important;
-    }
-
-    .map-link {
-      color: inherit;
-      text-decoration: none;
-      transition: color 0.3s, text-decoration 0.3s;
-      cursor: pointer;
-    }
-    .map-link:hover {
-      color: #dcb045;
-      text-decoration: underline;
-    }
-    
-    .footer-logo-img { display: none; } 
-    .footer-slogan { display: none; }
-
-    .footer-bottom-line {
-      max-width: 1000px;
-      margin: 0 auto;
-      border-top: 2px solid #dcb045;
-      padding-top: 30px;
-      text-align: center;
-    }
-    .f-services {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.0rem;
-      font-weight: 700;
-      color: #dcb045;
-      letter-spacing: 0.15em;
-      margin-bottom: 16px;
-    }
+    .biz-info { margin-top: 24px; font-size: 0.85rem; color: #666; line-height: 1.6; }
+    .map-link { color: inherit; text-decoration: none; cursor: pointer; }
+    .map-link:hover { color: #dcb045; text-decoration: underline; }
+    .footer-bottom-line { max-width: 1000px; margin: 0 auto; border-top: 2px solid #dcb045; padding-top: 30px; text-align: center; }
+    .f-services { font-family: 'Montserrat', sans-serif; font-size: 1.0rem; font-weight: 700; color: #dcb045; letter-spacing: 0.15em; margin-bottom: 16px; }
     .sep { color: rgba(255,255,255,0.1); margin: 0 14px; font-weight: 300; }
     .copyright { font-size: 0.8rem; color: #555; font-family: 'Montserrat', sans-serif; }
 
-    /* Animation & Mobile */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     @media (max-width: 768px) {
-      .logo img { width: 100%; }
-      .logo { margin-bottom: 40px; }
+      .hero-logo img { width: 80vw; }
+      .hero-slogan { font-size: 0.9rem; }
+      .hero-container { height: 60vh; }
       .main-desc { font-size: 1.2rem; }
-      .color-grid { flex-direction: column; gap: 30px; }
       .ai-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; }
-      .grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
-      .f-services { font-size: 0.85rem; }
-      .sep { margin: 0 6px; }
-      .brand-section::before { background-size: 30px 30px; }
-      .definition-box { padding: 20px; }
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
 
-    <div class="logo">
-      <img src="noid-logo.svg" alt="NOID LOGO" />
+  <div class="hero-container">
+    <div class="hero-video-bg">
+        <iframe 
+            src="https://www.youtube.com/embed/cwQlH5tPD1A?autoplay=1&mute=1&controls=0&loop=1&playlist=cwQlH5tPD1A&playsinline=1" 
+            title="NOID Hero Video" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+        </iframe>
     </div>
+    
+    <div class="hero-content">
+        <div class="hero-logo">
+            <img src="noid-logo.svg" alt="NOID LOGO" />
+        </div>
+        <div class="hero-slogan">EVOLVING VISION</div>
+    </div>
+  </div>
+
+
+  <div class="container">
 
     <section class="brand-section">
       <div class="section-header">BRAND IDENTITY</div>
@@ -456,26 +286,6 @@
           캐논 시네마 라인의 압도적 계조, 32비트 플로트 오디오의 무결점 사운드, 그리고 AI가 분석한 날카로운 전략까지.<br><br>
           <strong>'기술은 인간의 감성을 향할 때 비로소 위대해진다'</strong><br>
           우리는 이 신념으로 당신의 비즈니스를 시네마틱한 가치로 치환합니다.
-        </div>
-      </div>
-
-      <div class="color-section">
-        <span class="block-title">Color Definition</span>
-        <div class="color-grid">
-          <div class="color-item">
-            <div class="color-swatch" style="background: #2f3326;"></div>
-            <div class="color-info">
-              <h4>Static Khaki</h4>
-              <p>The Ground Zero</p>
-            </div>
-          </div>
-          <div class="color-item">
-            <div class="color-swatch" style="background: #dcb045;"></div>
-            <div class="color-info">
-              <h4>Glitch Yellow</h4>
-              <p>Digital Awakening</p>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -518,15 +328,6 @@
         </div>
     </section>
 
-    <div class="video-wrap">
-      <iframe
-        src="https://www.youtube.com/embed/cwQlH5tPD1A?rel=0&modestbranding=1&controls=1"
-        title="NOID Showreel"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe>
-    </div>
-
     <div class="section-header">SELECTED WORKS & R&D</div>
     <div class="grid">
       <a class="card" href="http://naver.me/xeUQP1Z7" target="_blank">
@@ -538,7 +339,6 @@
           <span class="card-tag">VIDEO PRODUCTION</span>
         </div>
       </a>
-      
       <a class="card" href="https://naver.me/5Hrtl0Lj" target="_blank">
         <div class="card-img-wrap">
           <img src="thumb_photo.jpg" alt="Photography" class="card-img">
@@ -548,7 +348,6 @@
           <span class="card-tag">STILL & PROFILE</span>
         </div>
       </a>
-      
       <a class="card" href="https://youtu.be/kWY28bN8_Zw?si=ZxyZoBMYwlWkVUau" target="_blank">
         <div class="card-img-wrap">
           <img src="thumb_drone.jpg" alt="Drone" class="card-img">
@@ -558,7 +357,6 @@
           <span class="card-tag">AERIAL CINEMATOGRAPHY</span>
         </div>
       </a>
-      
       <a class="card" href="https://youtu.be/BFhW3lqSM7k?si=gqHq_vuFBX7jmuuh" target="_blank">
         <div class="card-img-wrap">
           <img src="thumb_ai.jpg" alt="AI Lab" class="card-img">
@@ -576,24 +374,18 @@
     <div class="footer-content">
       <div class="f-name">Youngjin Seo</div>
       <div class="f-role">Creative Director · AI Production</div>
-      
       <div class="f-contact-info">
         <p><span class="label">M</span> +82.10.9507.2639</p>
         <p><span class="label">E</span> <a href="mailto:contact@noid-ai-studio.com">contact@noid-ai-studio.com</a></p>
       </div>
-      
       <div class="biz-info">
         License: 241-40-01310 <br>
         Address: <a href="https://map.naver.com/p/search/경기도%20광명시%20광명동%20297-50" target="_blank" class="map-link">경기도 광명시 광명동 297-50</a>
       </div>
     </div>
-
     <div class="footer-bottom-line">
       <div class="f-services">
-        VIDEO <span class="sep">|</span> 
-        PHOTO <span class="sep">|</span> 
-        DRONE <span class="sep">|</span> 
-        AI PRODUCTION
+        VIDEO <span class="sep">|</span> PHOTO <span class="sep">|</span> DRONE <span class="sep">|</span> AI PRODUCTION
       </div>
       <div class="copyright">
         © 2026 NOID AI STUDIO. All Rights Reserved.
