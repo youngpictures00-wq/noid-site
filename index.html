@@ -69,7 +69,7 @@
     .header-main-txt {
         font-family: 'Montserrat', sans-serif;
         font-weight: 900; 
-        font-size: 6.5rem; /* NOID 크기 유지 (초대형) */
+        font-size: 6.5rem; 
         color: #fff; 
         letter-spacing: -4px; 
         line-height: 1;
@@ -80,15 +80,13 @@
     .header-slogan-txt {
         font-family: 'Montserrat', sans-serif;
         font-weight: 700;
-        /* [핵심 수정] 폰트 사이즈 대폭 확대 (1.2rem -> 2.4rem) */
         font-size: 2.4rem; 
         color: var(--text-sub); 
         letter-spacing: 2px;
         text-transform: uppercase;
-        border-left: 4px solid var(--brand-yellow); /* 구분선도 두껍게 */
+        border-left: 4px solid var(--brand-yellow); 
         padding-left: 30px;
         line-height: 1;
-        /* 높이 보정 */
         margin-top: 10px; 
     }
 
@@ -125,16 +123,18 @@
       display: flex; flex-direction: column; align-items: center; position: relative;
     }
 
-    /* --- [본문 상단 로고 복구] --- */
+    /* --- [본문 상단 로고 복구 & 크기 대폭 확대] --- */
     .body-logo-wrap {
         width: 100%;
         text-align: center;
         margin-bottom: 60px; 
         animation: fadeIn 1.5s ease-out;
     }
+    /* [핵심 수정] 로고 이미지 크기 대폭 확대 */
     .body-logo-img {
-        width: 380px; 
-        max-width: 80vw; height: auto;
+        width: 800px; /* 기존 380px -> 800px로 대폭 확대 */
+        max-width: 90vw; /* 모바일에서도 꽉 차게 */
+        height: auto;
         filter: drop-shadow(0 0 20px rgba(0,0,0,0.4));
     }
 
@@ -232,19 +232,19 @@
 
     @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* 반응형: 모바일에서는 텍스트가 너무 크면 잘리므로 조정 */
+    /* 반응형 */
     @media (max-width: 768px) {
       header { height: 100px; padding: 0 10px; }
       .header-branding { flex-direction: column; gap: 5px; }
       .header-main-txt { font-size: 3.5rem; }
-      
-      /* 모바일에서는 슬로건도 살짝 작게 */
       .header-slogan-txt { border-left: none; padding-left: 0; font-size: 1.2rem; letter-spacing: 1px; margin-top: 0; }
-      
       .hero-video-wrap { height: calc(100vh - 100px); } 
       .main-desc { font-size: 1.2rem; }
       .ai-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; }
-      .body-logo-img { width: 300px; }
+      
+      /* [핵심 수정] 모바일에서도 로고 꽉 차게 */
+      .body-logo-img { width: 90vw; } 
+      
       padding-top: 100px;
     }
   </style>
@@ -279,7 +279,6 @@
 
     <section class="brand-section">
       <div class="section-header">BRAND IDENTITY</div>
-
       <div class="text-block">
         <div class="definition-box">
           <div class="def-item">
