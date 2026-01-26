@@ -8,7 +8,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&family=Noto+Sans+KR:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Noto+Sans+KR:wght@300;500;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -34,7 +34,7 @@
       word-break: keep-all;
       overflow-x: hidden;
       position: relative;
-      padding-top: 80px; /* 헤더 높이만큼 상단 여백 확보 */
+      padding-top: 100px; /* 헤더 높이만큼 상단 여백 확보 (헤더가 커져서 100px로 조정) */
     }
 
     /* --- [VINTAGE TEXTURE OVERLAY] --- */
@@ -46,48 +46,53 @@
     }
 
 
-    /* --- [1. HEADER: 호기스터 스타일 솔리드 바 + 텍스트] --- */
+    /* --- [1. HEADER: 중앙 정렬 & 거대한 텍스트] --- */
     header {
-        position: fixed; top: 0; left: 0; width: 100%; height: 80px;
-        display: flex; align-items: center; /* 수직 중앙 정렬 */
-        padding: 0 40px; /* 좌우 여백 */
+        position: fixed; top: 0; left: 0; width: 100%; height: 100px; /* 로고가 커져서 높이 약간 키움 */
+        display: flex; 
+        justify-content: center; /* [핵심] 중앙 정렬 */
+        align-items: center; 
+        padding: 0 40px;
         z-index: 1000;
-        /* [변경] 확실한 바탕색 (솔리드 블랙) 적용 */
-        background-color: #000;
-        border-bottom: 1px solid rgba(255,255,255,0.1); /* 하단 은은한 라인 */
+        background-color: #000; /* 솔리드 블랙 배경 */
+        border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 
     .header-branding {
         display: flex;
-        align-items: flex-end; /* 텍스트 하단 라인 맞춤 */
-        gap: 15px; /* NOID와 슬로건 사이 간격 */
+        align-items: center; /* 텍스트 높이 중앙 맞춤 */
+        gap: 20px; /* NOID와 슬로건 사이 간격 */
     }
 
     .header-main-txt {
         font-family: 'Montserrat', sans-serif;
         font-weight: 900; 
-        font-size: 1.8rem; 
+        font-size: 3rem; /* [핵심] 폰트 사이즈 대폭 확대 (호기스터 스타일) */
         color: #fff; 
-        letter-spacing: -0.5px;
+        letter-spacing: -2px; /* 자간 좁혀서 임팩트 있게 */
         line-height: 1;
+        text-transform: uppercase;
     }
     .header-main-txt span { color: var(--brand-yellow); }
 
     .header-slogan-txt {
         font-family: 'Montserrat', sans-serif;
         font-weight: 700;
-        font-size: 0.9rem;
-        color: var(--text-sub); /* 살짝 어두운 색으로 위계 구분 */
-        letter-spacing: 1px;
-        padding-bottom: 2px; /* 높이 미세 조정 */
+        font-size: 1rem; /* 슬로건도 비율에 맞춰 조정 */
+        color: var(--text-sub); 
+        letter-spacing: 2px; /* 자간 넓게 */
+        text-transform: uppercase;
+        border-left: 2px solid #333; /* 구분선 추가 */
+        padding-left: 20px;
+        line-height: 1.2;
     }
 
 
     /* --- [2. HERO VIDEO] --- */
     .hero-video-wrap {
         width: 100%;
-        /* 헤더 높이(80px)를 뺀 나머지 화면을 꽉 채움 */
-        height: calc(100vh - 80px); 
+        /* 헤더 높이(100px)를 뺀 나머지 화면 꽉 채움 */
+        height: calc(100vh - 100px); 
         overflow: hidden; 
         position: relative;
         border-bottom: 1px solid rgba(220, 176, 69, 0.3);
@@ -111,25 +116,25 @@
     /* --- [COMMON CONTAINER] --- */
     .container {
       width: 100%; max-width: 1100px; margin: 0 auto;
-      padding: 60px 24px 0; /* 상단 여백 조정 */
+      padding: 80px 24px 0;
       display: flex; flex-direction: column; align-items: center; position: relative;
     }
 
-    /* --- [NEW: 본문 상단 로고 복구 영역] --- */
+    /* --- [본문 상단 로고 복구] --- */
     .body-logo-wrap {
         width: 100%;
         text-align: center;
-        margin-bottom: 40px; /* BRAND IDENTITY와의 간격 */
+        margin-bottom: 50px; 
         animation: fadeIn 1.5s ease-out;
     }
     .body-logo-img {
-        width: 400px; /* 적당한 크기로 설정 (조절 가능) */
+        width: 380px; /* 로고 크기 */
         max-width: 80vw; height: auto;
-        filter: drop-shadow(0 0 20px rgba(0,0,0,0.3));
+        filter: drop-shadow(0 0 20px rgba(0,0,0,0.4));
     }
 
 
-    /* --- [이하는 기존 NOID 스타일 그대로 유지] --- */
+    /* --- [기존 NOID 스타일 유지] --- */
 
     /* BRAND IDENTITY & STORY */
     .brand-section {
@@ -223,8 +228,10 @@
     @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
     @media (max-width: 768px) {
-      header { padding: 0 20px; justify-content: center; }
-      .hero-video-wrap { height: calc(100vh - 80px); } 
+      header { padding: 0 20px; }
+      .header-branding { flex-direction: column; gap: 5px; align-items: center; }
+      .header-slogan-txt { border-left: none; padding-left: 0; }
+      .hero-video-wrap { height: calc(100vh - 100px); } 
       .main-desc { font-size: 1.2rem; }
       .ai-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; }
       .body-logo-img { width: 300px; }
