@@ -91,18 +91,13 @@
         animation: fadeIn 1.5s ease-out;
     }
     .hero-logo img {
-        width: 600px;
+        /* [수정 1] 로고 크기 확대 (기존 600px -> 800px) */
+        width: 800px;
         max-width: 90vw;
         filter: drop-shadow(0 0 30px rgba(0,0,0,0.5));
     }
-    .hero-slogan {
-        font-size: 1.3rem;
-        color: var(--brand-yellow);
-        letter-spacing: 0.3em;
-        margin-top: 25px;
-        font-weight: 600;
-        text-transform: uppercase;
-    }
+    
+    /* [수정 2] .hero-slogan (EVOLVING VISION) 스타일 및 HTML 삭제됨 */
 
     /* --- [2. OFFICIAL SHOWREEL] (Middle: Playable) --- */
     .showreel-section {
@@ -113,11 +108,11 @@
     }
     .video-wrap {
       width: 100%;
-      max-width: 1000px; /* 호기스터처럼 넉넉한 너비 */
+      max-width: 1000px; 
       aspect-ratio: 16 / 9;
       border-radius: 4px;
       overflow: hidden;
-      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8); /* 깊은 그림자 */
+      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8); 
       border: 1px solid rgba(255, 255, 255, 0.1);
       margin: 0 auto;
     }
@@ -146,6 +141,7 @@
       padding: 60px 0;
     }
     .section-header {
+      /* [수정 3] BRAND IDENTITY와 BRAND STORY 타이틀 공통 스타일 */
       font-size: 1.6rem;
       font-weight: 700;
       margin-bottom: 60px;
@@ -157,14 +153,12 @@
     }
 
     .text-block { margin-bottom: 80px; position: relative; z-index: 2; }
+    
+    /* .block-title 스타일은 이제 사용하지 않거나 보조용으로 둡니다 */
     .block-title {
       font-size: 0.9rem; letter-spacing: 0.3em; color: var(--brand-yellow);
       margin-bottom: 20px; font-weight: 700; text-transform: uppercase;
       display: inline-block; position: relative;
-    }
-    .block-title::after {
-      content: ''; display: block; width: 4px; height: 4px; 
-      background: var(--brand-yellow); margin: 10px auto 0; border-radius: 50%;
     }
 
     .definition-box {
@@ -239,7 +233,6 @@
       .hero-video-wrap { height: 60vh; } 
       .hero-logo-wrap { padding: 60px 24px 30px; }
       .hero-logo img { width: 80vw; }
-      .hero-slogan { font-size: 1.1rem; }
       .main-desc { font-size: 1.2rem; }
       .ai-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; }
     }
@@ -264,8 +257,7 @@
       <div class="hero-logo">
           <img src="noid-logo.svg" alt="NOID LOGO" />
       </div>
-      <div class="hero-slogan">EVOLVING VISION</div>
-  </div>
+      </div>
 
 
   <div class="container">
@@ -290,7 +282,8 @@
       </div>
 
       <div class="text-block">
-        <span class="block-title">Brand Story</span>
+        <div class="section-header" style="margin-top: 0; margin-bottom: 40px;">BRAND STORY</div>
+        
         <div class="main-desc">
           "소리의 질감에서 빛의 온도를 읽고,<br>
           픽셀의 깊이에서 브랜드의 철학을 봅니다."
