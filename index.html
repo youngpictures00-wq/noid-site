@@ -56,38 +56,32 @@
         background: radial-gradient(circle at 50% 50%, transparent 0%, rgba(0,0,0,0.4) 100%);
     }
 
-    /* --- [ANAMORPHIC HERO VIDEO] (시네마틱 와이드 적용) --- */
+    /* --- [1. HERO VIDEO] (Top: Anamorphic Background) --- */
     .hero-video-wrap {
         width: 100%;
-        height: 85vh; /* 영화관 스크린 느낌을 위해 높이 확보 */
+        height: 85vh; 
         min-height: 500px;
-        overflow: hidden; /* 확대된 영상의 테두리를 잘라냄 */
+        overflow: hidden; 
         position: relative;
         border-bottom: 1px solid rgba(220, 176, 69, 0.3);
     }
-    
     .video-foreground {
         position: absolute;
         top: 0; left: 0; width: 100%; height: 100%;
-        pointer-events: none; /* 영상 클릭 방지 (배경 목적) */
+        pointer-events: none; 
     }
-
     .video-foreground iframe {
         position: absolute;
         top: 50%; left: 50%;
         width: 100vw; 
-        height: 56.25vw; /* 16:9 비율 강제 (가로 기준) */
+        height: 56.25vw; 
         min-height: 100vh; 
-        min-width: 177.77vh; /* 16:9 비율 강제 (세로 기준) */
-        
-        /* [핵심 기술] 아나몰픽 줌 (Anamorphic Zoom) */
-        /* 영상을 1.35배 확대하여 레터박스/블랙바를 화면 밖으로 밀어냄 */
-        transform: translate(-50%, -50%) scale(1.35); 
-        
+        min-width: 177.77vh;
+        transform: translate(-50%, -50%) scale(1.35); /* 아나몰픽 줌 */
         object-fit: cover;
     }
 
-    /* --- HERO LOGO SECTION --- */
+    /* --- HERO LOGO --- */
     .hero-logo-wrap {
         width: 100%;
         padding: 80px 24px 40px;
@@ -96,13 +90,11 @@
         z-index: 2;
         animation: fadeIn 1.5s ease-out;
     }
-    
     .hero-logo img {
         width: 600px;
         max-width: 90vw;
         filter: drop-shadow(0 0 30px rgba(0,0,0,0.5));
     }
-
     .hero-slogan {
         font-size: 1.3rem;
         color: var(--brand-yellow);
@@ -111,6 +103,25 @@
         font-weight: 600;
         text-transform: uppercase;
     }
+
+    /* --- [2. OFFICIAL SHOWREEL] (Middle: Playable) --- */
+    .showreel-section {
+        width: 100%;
+        margin-bottom: 140px;
+        position: relative; z-index: 2;
+        text-align: center;
+    }
+    .video-wrap {
+      width: 100%;
+      max-width: 1000px; /* 호기스터처럼 넉넉한 너비 */
+      aspect-ratio: 16 / 9;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8); /* 깊은 그림자 */
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      margin: 0 auto;
+    }
+    .video-wrap iframe { width: 100%; height: 100%; border: none; }
 
 
     /* --- COMMON CONTAINER --- */
@@ -291,6 +302,18 @@
           우리는 이 신념으로 당신의 비즈니스를 시네마틱한 가치로 치환합니다.
         </div>
       </div>
+    </section>
+
+    <section class="showreel-section">
+        <div class="section-header">OFFICIAL SHOWREEL</div>
+        <div class="video-wrap">
+          <iframe
+            src="https://www.youtube.com/embed/cwQlH5tPD1A?rel=0&modestbranding=1&controls=1"
+            title="NOID Showreel"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
     </section>
 
     <section class="ai-section">
