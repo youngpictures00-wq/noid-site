@@ -36,7 +36,7 @@
       position: relative;
     }
 
-    /* --- [VINTAGE TEXTURE OVERLAY] --- */
+    /* --- [VINTAGE TEXTURE OVERLAY] (배경 질감 유지) --- */
     body::before {
         content: "";
         position: fixed;
@@ -56,59 +56,48 @@
         background: radial-gradient(circle at 50% 50%, transparent 0%, rgba(0,0,0,0.4) 100%);
     }
 
-    /* --- [NEW] HERO VIDEO SECTION --- */
-    .hero-container {
-        position: relative;
+    /* --- [수정됨] 1. HERO VIDEO SECTION (컬러 영상) --- */
+    .hero-video-wrap {
         width: 100%;
-        height: 80vh; /* 화면 높이의 80%를 영상으로 채움 */
+        height: 80vh; /* 화면 높이의 80% 차지 */
         min-height: 500px;
         overflow: hidden;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 80px;
-        border-bottom: 1px solid rgba(220, 176, 69, 0.2);
+        position: relative;
+        border-bottom: 1px solid rgba(220, 176, 69, 0.3); /* 하단 노란색 라인 */
+    }
+    .hero-video-wrap iframe {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* 영상이 영역을 꽉 채우도록 설정 */
+        /* 흑백 필터 제거됨 -> 컬러로 출력 */
     }
 
-    /* 배경 영상 (유튜브 iframe 확대) */
-    .hero-video-bg {
-        position: absolute;
-        top: 50%; left: 50%;
-        width: 100vw; 
-        height: 100vh; /* 넉넉하게 잡아서 레터박스 제거 */
-        transform: translate(-50%, -50%);
-        z-index: 1;
-        pointer-events: none; /* 클릭 방지 (배경처럼 쓰기 위해) */
-        opacity: 0.6; /* 영상 밝기 조절 (텍스트 잘 보이게) */
-        mix-blend-mode: luminosity; /* 흑백/빈티지 느낌 추가 (선택사항) */
-    }
-    .hero-video-bg iframe {
-        width: 100%; height: 100%;
-        object-fit: cover;
-    }
-
-    /* 영상 위에 뜨는 로고 & 텍스트 */
-    .hero-content {
+    /* --- [수정됨] 2. HERO LOGO SECTION (영상 아래 배치) --- */
+    .hero-logo-wrap {
+        width: 100%;
+        padding: 80px 24px 40px; /* 상하 여백 */
+        text-align: center;
         position: relative;
         z-index: 2;
-        text-align: center;
         animation: fadeIn 1.5s ease-out;
     }
     
     .hero-logo img {
         width: 600px;
         max-width: 90vw;
-        filter: drop-shadow(0 0 30px rgba(0,0,0,0.8)); /* 가독성을 위한 그림자 */
+        /* 로고 자체의 그림자 효과는 유지 */
+        filter: drop-shadow(0 0 30px rgba(0,0,0,0.5));
     }
 
     .hero-slogan {
-        font-size: 1.2rem;
-        color: rgba(255,255,255,0.9);
-        letter-spacing: 0.2em;
-        margin-top: 20px;
-        font-weight: 300;
-        text-shadow: 0 2px 10px rgba(0,0,0,1);
+        font-size: 1.3rem;
+        color: var(--brand-yellow); /* 슬로건 색상을 브랜드 컬러로 변경하여 강조 */
+        letter-spacing: 0.3em;
+        margin-top: 25px;
+        font-weight: 600;
+        text-transform: uppercase;
     }
+
 
     /* --- COMMON CONTAINER --- */
     .container {
@@ -222,9 +211,10 @@
 
     @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     @media (max-width: 768px) {
+      .hero-video-wrap { height: 60vh; } /* 모바일에서는 영상 높이 조절 */
+      .hero-logo-wrap { padding: 60px 24px 30px; }
       .hero-logo img { width: 80vw; }
-      .hero-slogan { font-size: 0.9rem; }
-      .hero-container { height: 60vh; }
+      .hero-slogan { font-size: 1.1rem; }
       .main-desc { font-size: 1.2rem; }
       .ai-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; }
     }
@@ -233,28 +223,25 @@
 
 <body>
 
-  <div class="hero-container">
-    <div class="hero-video-bg">
-        <iframe 
-            src="https://www.youtube.com/embed/cwQlH5tPD1A?autoplay=1&mute=1&controls=0&loop=1&playlist=cwQlH5tPD1A&playsinline=1" 
-            title="NOID Hero Video" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen>
-        </iframe>
-    </div>
-    
-    <div class="hero-content">
-        <div class="hero-logo">
-            <img src="noid-logo.svg" alt="NOID LOGO" />
-        </div>
-        <div class="hero-slogan">EVOLVING VISION</div>
-    </div>
+  <div class="hero-video-wrap">
+      <iframe 
+          src="https://www.youtube.com/embed/cwQlH5tPD1A?autoplay=1&mute=1&controls=0&loop=1&playlist=cwQlH5tPD1A&playsinline=1" 
+          title="NOID Hero Video" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+      </iframe>
+  </div>
+  
+  <div class="hero-logo-wrap">
+      <div class="hero-logo">
+          <img src="noid-logo.svg" alt="NOID LOGO" />
+      </div>
+      <div class="hero-slogan">EVOLVING VISION</div>
   </div>
 
 
   <div class="container">
-
     <section class="brand-section">
       <div class="section-header">BRAND IDENTITY</div>
 
