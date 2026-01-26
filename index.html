@@ -27,7 +27,6 @@
       margin: 0;
       min-height: 100vh;
       background-color: var(--bg-dark);
-      /* 기존 NOID의 은은한 그라디언트 배경 유지 */
       background: radial-gradient(circle at 50% 30%, var(--bg-gradient) 0%, var(--bg-dark) 80%);
       color: var(--text-main);
       font-family: 'Montserrat', 'Noto Sans KR', sans-serif;
@@ -35,9 +34,10 @@
       word-break: keep-all;
       overflow-x: hidden;
       position: relative;
+      padding-top: 80px; /* 헤더 높이만큼 상단 여백 확보 */
     }
 
-    /* --- [VINTAGE TEXTURE OVERLAY (기존 스타일 유지)] --- */
+    /* --- [VINTAGE TEXTURE OVERLAY] --- */
     body::before {
         content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
         pointer-events: none; z-index: -1; 
@@ -46,31 +46,48 @@
     }
 
 
-    /* --- [1. HEADER: 호기스터 스타일 텍스트 로고] --- */
+    /* --- [1. HEADER: 호기스터 스타일 솔리드 바 + 텍스트] --- */
     header {
         position: fixed; top: 0; left: 0; width: 100%; height: 80px;
-        display: flex; justify-content: center; align-items: center;
+        display: flex; align-items: center; /* 수직 중앙 정렬 */
+        padding: 0 40px; /* 좌우 여백 */
         z-index: 1000;
-        /* 배경을 투명하게 해서 영상 위에 떠있는 느낌 */
-        background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent); 
+        /* [변경] 확실한 바탕색 (솔리드 블랙) 적용 */
+        background-color: #000;
+        border-bottom: 1px solid rgba(255,255,255,0.1); /* 하단 은은한 라인 */
     }
 
-    .logo-text {
+    .header-branding {
+        display: flex;
+        align-items: flex-end; /* 텍스트 하단 라인 맞춤 */
+        gap: 15px; /* NOID와 슬로건 사이 간격 */
+    }
+
+    .header-main-txt {
         font-family: 'Montserrat', sans-serif;
         font-weight: 900; 
-        font-size: 2.5rem; 
+        font-size: 1.8rem; 
         color: #fff; 
-        letter-spacing: -1px;
-        text-transform: uppercase;
-        text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        letter-spacing: -0.5px;
+        line-height: 1;
     }
-    .logo-text span { color: var(--brand-yellow); }
+    .header-main-txt span { color: var(--brand-yellow); }
+
+    .header-slogan-txt {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        font-size: 0.9rem;
+        color: var(--text-sub); /* 살짝 어두운 색으로 위계 구분 */
+        letter-spacing: 1px;
+        padding-bottom: 2px; /* 높이 미세 조정 */
+    }
 
 
-    /* --- [2. HERO VIDEO: 풀스크린 (텍스트 없음)] --- */
+    /* --- [2. HERO VIDEO] --- */
     .hero-video-wrap {
         width: 100%;
-        height: 100vh; /* 화면 꽉 차게 변경 */
+        /* 헤더 높이(80px)를 뺀 나머지 화면을 꽉 채움 */
+        height: calc(100vh - 80px); 
         overflow: hidden; 
         position: relative;
         border-bottom: 1px solid rgba(220, 176, 69, 0.3);
@@ -87,26 +104,37 @@
         min-height: 100vh; min-width: 177.77vh;
         transform: translate(-50%, -50%);
         object-fit: cover;
-        opacity: 0.8; /* 영상 밝기 살짝 조절 */
+        opacity: 0.8;
     }
 
-    /* --- [기존 NOID 스타일 내용 복구] --- */
-
+    
+    /* --- [COMMON CONTAINER] --- */
     .container {
-      width: 100%;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 100px 24px 0; /* 상단 여백 추가 */
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      position: relative;
+      width: 100%; max-width: 1100px; margin: 0 auto;
+      padding: 60px 24px 0; /* 상단 여백 조정 */
+      display: flex; flex-direction: column; align-items: center; position: relative;
     }
+
+    /* --- [NEW: 본문 상단 로고 복구 영역] --- */
+    .body-logo-wrap {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 40px; /* BRAND IDENTITY와의 간격 */
+        animation: fadeIn 1.5s ease-out;
+    }
+    .body-logo-img {
+        width: 400px; /* 적당한 크기로 설정 (조절 가능) */
+        max-width: 80vw; height: auto;
+        filter: drop-shadow(0 0 20px rgba(0,0,0,0.3));
+    }
+
+
+    /* --- [이하는 기존 NOID 스타일 그대로 유지] --- */
 
     /* BRAND IDENTITY & STORY */
     .brand-section {
       width: 100%; max-width: 800px; margin-bottom: 100px;
-      text-align: center; position: relative; padding: 60px 0;
+      text-align: center; position: relative; padding: 40px 0;
     }
     .section-header {
       font-size: 1.6rem; font-weight: 700; margin-bottom: 60px;
@@ -131,7 +159,7 @@
     .sub-desc { font-size: 1.05rem; color: var(--text-sub); font-weight: 300; line-height: 1.8; max-width: 680px; margin: 0 auto; }
     .highlight { color: #fff; font-weight: 500; }
 
-    /* AI WORKFLOW (기존 카드 스타일) */
+    /* AI WORKFLOW */
     .ai-section { width: 100%; margin-bottom: 140px; position: relative; z-index: 2; }
     .ai-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; width: 100%; }
     .ai-tool-card {
@@ -192,11 +220,14 @@
     .sep { color: rgba(255,255,255,0.1); margin: 0 14px; font-weight: 300; }
     .copyright { font-size: 0.8rem; color: #555; font-family: 'Montserrat', sans-serif; }
 
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
     @media (max-width: 768px) {
-      .hero-video-wrap { height: 100vh; } 
-      .logo-text { font-size: 1.8rem; }
+      header { padding: 0 20px; justify-content: center; }
+      .hero-video-wrap { height: calc(100vh - 80px); } 
       .main-desc { font-size: 1.2rem; }
       .ai-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; }
+      .body-logo-img { width: 300px; }
     }
   </style>
 </head>
@@ -204,7 +235,10 @@
 <body>
 
   <header>
-      <div class="logo-text">NOID<span>.</span></div>
+      <div class="header-branding">
+          <div class="header-main-txt">NOID<span>.</span></div>
+          <div class="header-slogan-txt">EVOLVING VISION</div>
+      </div>
   </header>
 
   <div class="hero-video-wrap">
@@ -220,6 +254,11 @@
   </div>
   
   <div class="container">
+    
+    <div class="body-logo-wrap">
+        <img src="noid-logo.svg" alt="NOID Main Logo" class="body-logo-img">
+    </div>
+
     <section class="brand-section">
       <div class="section-header">BRAND IDENTITY</div>
 
