@@ -50,7 +50,7 @@
     /* --- [1. HEADER: 압도적인 텍스트 사이즈 적용] --- */
     header {
         position: fixed; top: 0; left: 0; width: 100%; 
-        height: 140px; /* 로고 크기에 맞춰 높이 확대 */
+        height: 140px; 
         display: flex; 
         justify-content: center; /* 중앙 정렬 */
         align-items: center; 
@@ -63,16 +63,15 @@
     .header-branding {
         display: flex;
         align-items: center; /* 수직 중앙 정렬 */
-        gap: 30px; /* NOID와 슬로건 사이 간격 시원하게 */
+        gap: 30px; /* NOID와 슬로건 사이 간격 */
     }
 
     .header-main-txt {
         font-family: 'Montserrat', sans-serif;
         font-weight: 900; 
-        /* [핵심 수정] 폰트 사이즈 대폭 확대 (6.5rem) */
-        font-size: 6.5rem; 
+        font-size: 6.5rem; /* NOID 크기 유지 (초대형) */
         color: #fff; 
-        letter-spacing: -4px; /* 자간을 좁혀서 꽉 찬 느낌 (Solid) */
+        letter-spacing: -4px; 
         line-height: 1;
         text-transform: uppercase;
     }
@@ -81,13 +80,16 @@
     .header-slogan-txt {
         font-family: 'Montserrat', sans-serif;
         font-weight: 700;
-        font-size: 1.2rem; /* 슬로건도 비율 맞춰서 키움 */
+        /* [핵심 수정] 폰트 사이즈 대폭 확대 (1.2rem -> 2.4rem) */
+        font-size: 2.4rem; 
         color: var(--text-sub); 
-        letter-spacing: 3px; /* 슬로건은 자간을 넓혀서 세련되게 */
+        letter-spacing: 2px;
         text-transform: uppercase;
-        border-left: 3px solid var(--brand-yellow); /* 노란색 구분선 강조 */
+        border-left: 4px solid var(--brand-yellow); /* 구분선도 두껍게 */
         padding-left: 30px;
-        line-height: 1.1;
+        line-height: 1;
+        /* 높이 보정 */
+        margin-top: 10px; 
     }
 
 
@@ -112,7 +114,7 @@
         min-height: 100vh; min-width: 177.77vh;
         transform: translate(-50%, -50%);
         object-fit: cover;
-        opacity: 0.85; /* 영상 존재감 업 */
+        opacity: 0.85; 
     }
 
     
@@ -235,7 +237,10 @@
       header { height: 100px; padding: 0 10px; }
       .header-branding { flex-direction: column; gap: 5px; }
       .header-main-txt { font-size: 3.5rem; }
-      .header-slogan-txt { border-left: none; padding-left: 0; font-size: 0.9rem; letter-spacing: 1px; }
+      
+      /* 모바일에서는 슬로건도 살짝 작게 */
+      .header-slogan-txt { border-left: none; padding-left: 0; font-size: 1.2rem; letter-spacing: 1px; margin-top: 0; }
+      
       .hero-video-wrap { height: calc(100vh - 100px); } 
       .main-desc { font-size: 1.2rem; }
       .ai-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; }
