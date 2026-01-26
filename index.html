@@ -12,13 +12,13 @@
 
   <style>
     :root {
-      /* [NOID Original Colors] */
-      --bg-dark: #161814;
-      --bg-gradient: #282b22;
-      --brand-yellow: #dcb045;
-      --text-main: #f2f2ea;
-      --text-sub: #9ea099;
-      --card-bg: #1f221c;
+      /* [NOID Brand Colors] */
+      --bg-dark: #161814;      /* Deep Dark Khaki (Almost Black) */
+      --bg-gradient: #282b22;  /* Dark Olive Khaki */
+      --brand-yellow: #dcb045; /* NOID Yellow (Not Gold) */
+      --text-main: #f2f2ea;    /* NOID White (Mist) */
+      --text-sub: #9ea099;     /* Grey */
+      --card-bg: #1f221c;      /* Card Background */
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -34,7 +34,6 @@
       word-break: keep-all;
       overflow-x: hidden;
       position: relative;
-      /* 헤더가 커진 만큼 상단 여백도 140px로 확보 */
       padding-top: 140px; 
     }
 
@@ -47,23 +46,23 @@
     }
 
 
-    /* --- [1. HEADER: 압도적인 텍스트 사이즈 적용] --- */
+    /* --- [1. HEADER: 압도적인 텍스트 사이즈] --- */
     header {
         position: fixed; top: 0; left: 0; width: 100%; 
         height: 140px; 
         display: flex; 
-        justify-content: center; /* 중앙 정렬 */
+        justify-content: center; 
         align-items: center; 
         padding: 0 40px;
         z-index: 1000;
-        background-color: #000; /* 솔리드 블랙 */
+        background-color: #000; 
         border-bottom: 1px solid rgba(255,255,255,0.15);
     }
 
     .header-branding {
         display: flex;
-        align-items: center; /* 수직 중앙 정렬 */
-        gap: 30px; /* NOID와 슬로건 사이 간격 */
+        align-items: center; 
+        gap: 30px; 
     }
 
     .header-main-txt {
@@ -94,7 +93,6 @@
     /* --- [2. HERO VIDEO] --- */
     .hero-video-wrap {
         width: 100%;
-        /* 헤더 높이(140px)를 뺀 나머지 화면 꽉 채움 */
         height: calc(100vh - 140px); 
         overflow: hidden; 
         position: relative;
@@ -123,7 +121,7 @@
       display: flex; flex-direction: column; align-items: center; position: relative;
     }
 
-    /* --- [본문 상단 로고 (큰 사이즈)] --- */
+    /* --- [본문 상단 로고] --- */
     .body-logo-wrap {
         width: 100%;
         text-align: center;
@@ -137,11 +135,9 @@
     }
 
 
-    /* --- [기존 NOID 스타일 유지] --- */
-
-    /* BRAND IDENTITY & STORY */
+    /* --- [BRAND STORY & IDENTITY] --- */
     .brand-section {
-      width: 100%; max-width: 800px; margin-bottom: 100px;
+      width: 100%; max-width: 800px; margin-bottom: 80px;
       text-align: center; position: relative; padding: 40px 0;
     }
     .section-header {
@@ -159,7 +155,6 @@
     .def-title { color: var(--brand-yellow); font-weight: 700; font-size: 1.1rem; margin-bottom: 4px; font-family: 'Montserrat', sans-serif; }
     .def-desc { color: #ccc; font-size: 0.95rem; line-height: 1.6; }
 
-    /* [브랜드 스토리 메인 텍스트] */
     .main-desc {
       font-size: 1.5rem; font-weight: 500; line-height: 1.8; color: #fff;
       margin-bottom: 50px; font-family: 'Noto Sans KR', sans-serif;
@@ -167,7 +162,6 @@
     }
     .main-desc strong { font-weight: 700; color: var(--brand-yellow); }
     
-    /* [브랜드 스토리 서브 텍스트] */
     .sub-desc { 
         font-size: 1.1rem; color: var(--text-sub); font-weight: 300; 
         line-height: 2.0; 
@@ -175,6 +169,23 @@
     }
     .highlight { color: #fff; font-weight: 500; }
     .highlight-yellow { color: var(--brand-yellow); font-weight: 700; }
+
+
+    /* --- [BRAND COLORS SECTION (Corrected: Khaki, Yellow, White)] --- */
+    .color-section { width: 100%; margin-bottom: 140px; text-align: center; }
+    .color-grid { display: flex; justify-content: center; gap: 50px; flex-wrap: wrap; margin-top: 50px; }
+    .color-card { text-align: center; width: 160px; }
+    .color-circle { 
+        width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 20px; 
+        box-shadow: 0 10px 20px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1);
+        transition: transform 0.3s ease;
+    }
+    .color-card:hover .color-circle { transform: scale(1.1); border-color: #fff; }
+    
+    .color-name { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.1rem; color: #fff; margin-bottom: 5px; text-transform: uppercase;}
+    .color-hex { font-family: 'Montserrat', sans-serif; color: #777; font-size: 0.85rem; margin-bottom: 12px; letter-spacing: 1px; }
+    .color-desc { font-size: 0.9rem; color: #999; line-height: 1.5; word-break: keep-all; }
+
 
     /* AI WORKFLOW */
     .ai-section { width: 100%; margin-bottom: 140px; position: relative; z-index: 2; }
@@ -324,6 +335,31 @@
           당신의 비즈니스를 시네마틱한 가치로 치환합니다.
         </div>
       </div>
+
+      <div class="color-section">
+        <div class="section-header" style="font-size: 1.2rem; margin-bottom: 30px; opacity: 0.6;">BRAND COLORS</div>
+        <div class="color-grid">
+            <div class="color-card">
+                <div class="color-circle" style="background-color: #4e5340;"></div>
+                <div class="color-name">NOID KHAKI</div>
+                <div class="color-hex">#4E5340</div>
+                <div class="color-desc">20년의 노련한 경험과<br>현장의 깊이</div>
+            </div>
+            <div class="color-card">
+                <div class="color-circle" style="background-color: #dcb045;"></div>
+                <div class="color-name">NOID YELLOW</div>
+                <div class="color-hex">#DCB045</div>
+                <div class="color-desc">데이터를 꿰뚫는 통찰과<br>창의적 임팩트</div>
+            </div>
+            <div class="color-card">
+                <div class="color-circle" style="background-color: #f2f2ea;"></div>
+                <div class="color-name">NOID WHITE</div>
+                <div class="color-hex">#F2F2EA</div>
+                <div class="color-desc">무한한 가능성과<br>본질의 명료함</div>
+            </div>
+        </div>
+      </div>
+
     </section>
 
     <section class="showreel-section">
